@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Your custom styles here */
+:root {
+  --app-bg-primary: #0D1729;
+  --app-color-primary: #C5CEEC;
+  --app-bg-secondary: #141C35;
+  --app-color-secondary: #636B83;
+  --app-color-mark: #77ACAF;
+}
+.full-body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.bg-primary {
+  background-color: var(--app-bg-primary);
+}
+.bg-secondary {
+  background-color: var(--app-bg-secondary);
+}
+.color-primary {
+  color: var(--app-color-primary);
+}
+.color-secondary {
+  color: var(--app-color-secondary);
+}
+.mark-text {
+  color: var(--app-color-mark);
+}
