@@ -1,6 +1,6 @@
 <script setup>
     import { onMounted, ref } from 'vue'
-    import { timeline, stagger } from "motion"
+    import { timeline, stagger, animate } from "motion"
 
     const verticalLineE1 = ref(null)
     const verticalLineE2 = ref(null)
@@ -26,6 +26,16 @@
             visibility: "visible",
         });
 
+        const erase = (progress) => ({
+            // This property makes the line "draw" in when animated
+            strokeDashoffset: progress - 1,
+
+            // Each line will be hidden until it starts drawing
+            // to fix a bug in Safari where the line can be
+            // partially visible even when progress is at 0
+            visibility: "visible",
+        });
+
         timeline([
             [verticalLineE1.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
             [verticalLineE2.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
@@ -37,15 +47,31 @@
             [horizontalJ2.value, draw(1), { duration: 0.2, at: 0.6, delay: stagger(0.2) }],
 
             [shapeOutside.value, draw(1), { duration: 0.6, at: 0.8, delay: stagger(0.1) }],
-            [shapeInisde.value, draw(1), { duration: 0.6, at: 1, delay: stagger(0.1) }],
+            [shapeInisde.value, draw(1), { duration: 0.6, at: 0.9, delay: stagger(0.1) }],
         ])
+
+        // now we erase shapeOutise and Inside
+        setTimeout(() => {
+            timeline([
+                [shapeOutside.value, erase(0), { duration: 0.8, at: 1.4, delay: stagger(1.5) }],
+                [shapeInisde.value, erase(0), { duration: 0.8, at: 1.4, delay: stagger(1.5) }],
+
+                ["path", erase(0), { duration: 0.1, at: 2.2, delay: stagger(0.1) }],
+            ])
+        }, 1400)
+
+        animate(
+            "h1",
+            { y: [0,12], opacity: [0,1] },
+            { delay: 4.5 }
+        )
     })
 </script>
 <template>
     <div>
         <h1 class="bg-primary color-primary text-3xl">José Esteban Juárez Velázquez</h1>
-        <h2 class="bg-slate-800 color-secondary">{{ $t('web_developer') }}</h2>
-        <span class=" text-green-300">Some text</span>
+        <h1 class="bg-slate-800 color-secondary">{{ $t('web_developer') }}</h1>
+        <span class=" text-green-300 mt-5">Some text</span>
         <div class="m-5">
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
                 <path ref="verticalLineE1" d="M 6 27 l46 22.5 Z" pathLength="1" />
@@ -71,23 +97,21 @@
         border-radius: 5px;
     }
 
-    /* circle test */
-    circle,
-  path {
-    fill: transparent;
-    stroke: #57EB64;
-    stroke-width: 6px;
-    stroke-dasharray: 1;
-    stroke-dashoffset: 1;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    visibility: hidden;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-  }
+    path {
+        fill: transparent;
+        stroke: #57EB64;
+        stroke-width: 6px;
+        stroke-dasharray: 1;
+        stroke-dashoffset: 1;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
   
   circle {
     transform-origin: 100px 100px;
