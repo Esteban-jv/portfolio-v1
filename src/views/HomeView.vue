@@ -1,6 +1,18 @@
 <script setup>
-    import { onMounted } from 'vue'
+    import { onMounted, ref } from 'vue'
     import { timeline, stagger } from "motion"
+
+    const verticalLineE1 = ref(null)
+    const verticalLineE2 = ref(null)
+    const verticalLineE3 = ref(null)
+    const horizontalE = ref(null)
+
+    const verticalJ = ref(null)
+    const horizontalJ = ref(null)
+    const horizontalJ2 = ref(null)
+
+    const shapeOutside = ref(null)
+    const shapeInisde = ref(null)
 
     onMounted(() => {
 
@@ -13,16 +25,19 @@
             // partially visible even when progress is at 0
             visibility: "visible",
         });
+
         timeline([
-            // ["circle", draw(1), { duration: 0.8, delay: 1 }],
-            ["path #l1", draw(1), { duration: 0.6, at: 1, delay: stagger(0.2) }],
-            ["path #l2", draw(1), { duration: 0.6, at: 1, delay: stagger(0.3) }],
-            ["path #l3", draw(1), { duration: 0.6, at: 1, delay: stagger(0.4) }],
-            ["path #l4", draw(1), { duration: 0.6, at: 1, delay: stagger(0.5) }],
-            ["path #l5", draw(1), { duration: 0.6, at: 1, delay: stagger(0.6) }],
-            ["path #l6", draw(1), { duration: 0.6, at: 1 }],
-            ["path", draw(1), { duration: 0.8, at: "-0.2", delay: stagger(0.2) }],
-            ["path #shape2", draw(1), { duration: 0.8, at: "-0.2", delay: stagger(0.1) }],
+            [verticalLineE1.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
+            [verticalLineE2.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
+            [verticalLineE3.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
+            [horizontalE.value, draw(1), { duration: 0.2, at: 0.4, delay: stagger(0.2) }],
+
+            [verticalJ.value, draw(1), { duration: 0.2, at: 0.6, delay: stagger(0.2) }],
+            [horizontalJ.value, draw(1), { duration: 0.2, at: 0.6, delay: stagger(0.2) }],
+            [horizontalJ2.value, draw(1), { duration: 0.2, at: 0.6, delay: stagger(0.2) }],
+
+            [shapeOutside.value, draw(1), { duration: 0.6, at: 0.8, delay: stagger(0.1) }],
+            [shapeInisde.value, draw(1), { duration: 0.6, at: 1, delay: stagger(0.1) }],
         ])
     })
 </script>
@@ -33,18 +48,16 @@
         <span class=" text-green-300">Some text</span>
         <div class="m-5">
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-                <!-- <circle cx="150" cy="50" r="40" pathLength="1"></circle> -->
-                <path id="shape" d="M 6 27 L 6 72 L 50 98 L 94 72 L 94 27 L 50 6 Z" pathLength="1"></path>
-                <path id="l1" d="M6 27 l46 22.5" />
-                <!-- <path id="l1" d="M6 27 l 0 45" /> -->
-                <path id="l2" d="M6 48 l23 13" />
-                <!-- <path id="l3" d="M6 72 l46 25" /> -->
+                <path ref="verticalLineE1" d="M 6 27 l46 22.5 Z" pathLength="1" />
+                <path ref="verticalLineE2" d="M 6 48 l23 13 Z" pathLength="1"/>
+                <path ref="verticalLineE3" d="M 6 72 l40 24 Z" pathLength="1"/>
+                <path ref="horizontalE" d="M 6 27 l 0 45 Z" pathLength="1"/>
 
-                <!-- <path id="l4" d="M94 72 l -41 24" /> -->
-                <!-- <path id="l5" d="M94 72 l 0 -45" /> -->
-                <path id="l6" d="M94 27 l -41 22.5" />
-
-                <path id="shape2" d="M 28 38 L 28 61 L 50 71 L 72 61 L 72 38 L 50 28 Z" pathLength="1"></path>
+                <path ref="verticalJ" d="M 94 72 l -41 24 Z" pathLength="1"/>
+                <path ref="horizontalJ" d="M 94 72 l 0 -45 Z" pathLength="1"/>
+                <path ref="horizontalJ2" d="M94 27 l -21 12.5" pathLength="1"/>
+                <path ref="shapeOutside" d="M 6 27 L 6 72 L 50 98 L 94 72 L 94 27 L 50 6 Z" pathLength="1"></path>
+                <path ref="shapeInisde" d="M 28 38 L 28 61 L 50 71 L 72 61 L 72 38 L 50 28 Z" pathLength="1"></path>
             </svg>
         </div>
     </div>
