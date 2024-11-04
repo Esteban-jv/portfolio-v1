@@ -14,7 +14,7 @@
     const shapeOutside = ref(null)
     const shapeInisde = ref(null)
 
-    onMounted(() => {
+    onMounted(async () => {
 
         const draw = (progress) => ({
             // This property makes the line "draw" in when animated
@@ -36,7 +36,7 @@
             visibility: "visible",
         });
 
-        timeline([
+        await timeline([
             [verticalLineE1.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
             [verticalLineE2.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
             [verticalLineE3.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
@@ -51,8 +51,8 @@
         ])
 
         // now we erase shapeOutise and Inside
-        setTimeout(() => {
-            timeline([
+        await setTimeout(async() => {
+            await timeline([
                 [shapeOutside.value, erase(0), { duration: 0.8, at: 1.4, delay: stagger(1.5) }],
                 [shapeInisde.value, erase(0), { duration: 0.8, at: 1.4, delay: stagger(1.5) }],
 
@@ -60,35 +60,68 @@
             ])
         }, 1400)
 
-        animate(
+        await animate(
             "h1",
             { y: [0,12], opacity: [0,1] },
             { delay: 4.5 }
         )
+        await animate(
+            "section",
+            { y: [0,12], opacity: [0,1] },
+            { delay: 4.6 }
+        )
+        // animate(
+        //     "span",
+        //     { y: [0,12], opacity: [0,1] },
+        //     { delay: 4.5 }
+        // )
     })
 </script>
 <template>
-    <div>
-        <h1 class="bg-primary color-primary text-3xl">José Esteban Juárez Velázquez</h1>
-        <h1 class="bg-slate-800 color-secondary">{{ $t('web_developer') }}</h1>
-        <span class=" text-green-300 mt-5">Some text</span>
-        <div class="m-5">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-                <path ref="verticalLineE1" d="M 6 27 l46 22.5 Z" pathLength="1" />
-                <path ref="verticalLineE2" d="M 6 48 l23 13 Z" pathLength="1"/>
-                <path ref="verticalLineE3" d="M 6 72 l40 24 Z" pathLength="1"/>
-                <path ref="horizontalE" d="M 6 27 l 0 45 Z" pathLength="1"/>
+    <div id="logo-loader">
+        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+            <path ref="verticalLineE1" d="M 6 27 l46 22.5 Z" pathLength="1" />
+            <path ref="verticalLineE2" d="M 6 48 l23 13 Z" pathLength="1"/>
+            <path ref="verticalLineE3" d="M 6 72 l40 24 Z" pathLength="1"/>
+            <path ref="horizontalE" d="M 6 27 l 0 45 Z" pathLength="1"/>
 
-                <path ref="verticalJ" d="M 94 72 l -41 24 Z" pathLength="1"/>
-                <path ref="horizontalJ" d="M 94 72 l 0 -45 Z" pathLength="1"/>
-                <path ref="horizontalJ2" d="M94 27 l -21 12.5" pathLength="1"/>
-                <path ref="shapeOutside" d="M 6 27 L 6 72 L 50 98 L 94 72 L 94 27 L 50 6 Z" pathLength="1"></path>
-                <path ref="shapeInisde" d="M 28 38 L 28 61 L 50 71 L 72 61 L 72 38 L 50 28 Z" pathLength="1"></path>
-            </svg>
-        </div>
+            <path ref="verticalJ" d="M 94 72 l -41 24 Z" pathLength="1"/>
+            <path ref="horizontalJ" d="M 94 72 l 0 -45 Z" pathLength="1"/>
+            <path ref="horizontalJ2" d="M94 27 l -21 12.5" pathLength="1"/>
+            <path ref="shapeOutside" d="M 6 27 L 6 72 L 50 98 L 94 72 L 94 27 L 50 6 Z" pathLength="1"></path>
+            <path ref="shapeInisde" d="M 28 38 L 28 61 L 50 71 L 72 61 L 72 38 L 50 28 Z" pathLength="1"></path>
+        </svg>
     </div>
+    <div class="p-5 md:p-10">
+        <h1 class="bg-primary color-primary text-3xl md:text-5xl">José Esteban Juárez Velázquez</h1>
+        <h1 class="bg-primary color-secondary text-2xl md:text-3xl mt-3"> {{ $t('web_developer') }}</h1>
+        <!-- <h1 class="bg-slate-800 color-secondary mb-5">{{ $t('web_developer') }}</h1> -->
+        <!-- <span class=" text-green-300">Some text</span> -->
+    </div>
+    <section class="p-5 md:p-10">
+        <div class="md:flex inline">
+            <!-- <img src="/Profile.jpg" alt="" class="h-40 w-30 bg-auto bg-no-repeat bg-center rounded-lg"> -->
+            <div class="w-50">
+                <div class="h-40 w-40 items-center justify-center rounded-full border-[4px] border-green-300 bg-white">
+                    <img class="h-full w-full rounded-full" src="/Profile.jpg" alt="" />
+                </div>
+            </div>
+            <div class="w-50 self-center">
+                <div class="color-primary md:mx-3 mx-0 my-3 md:my-0 bg-slate-800 p-3 rounded-lg max-w-[600px]">
+                    <h2 class="text-2xl md:text-3xl">{{ $t('about_me') }}</h2>
+                    <p class="mt-3 text-justify">{{ $t('about_me_description') }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </template>
 <style>
+    #logo-loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
     .box {
         margin: 100px;
         width: 200px;
