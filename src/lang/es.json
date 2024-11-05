@@ -1,5 +1,7 @@
 {
     "web_developer":"Desarrollador web",
     "about_me": "Sobre mí",
-    "about_me_description": "Soy un desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles. Me apasiona la tecnología y me encanta aprender nuevas tecnologías. Me encanta trabajar en equipo y compartir mis conocimientos con los demás."
+    "about_me_description": "Soy un desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles. Me apasiona la tecnología y me encanta aprender nuevas tecnologías. Me encanta trabajar en equipo y compartir mis conocimientos con los demás.",
+    "stack": "Tecnologías",
+    "experience": "Experiencia"
 }

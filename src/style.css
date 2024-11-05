@@ -31,3 +31,8 @@
 .mark-text {
   color: var(--app-color-mark);
 }
+.badge {
+  font-size: small;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.5rem;
+}

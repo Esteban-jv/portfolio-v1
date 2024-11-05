@@ -14,6 +14,11 @@
     const shapeOutside = ref(null)
     const shapeInisde = ref(null)
 
+    const stacks = ref([
+        'html', 'css', 'javascript', 'vue', 'tailwindcss', 'laravel', 'php', 'mysql', 'git', 'github', 'linux', 'nginx', 'apache', 'postman',
+        'SVN', 'PostgreSQL', 'MMSQL', 'Python', 'DJango', 'DRF', 'Bootstrap', 'Rest'
+    ])
+
     onMounted(async () => {
 
         const draw = (progress) => ({
@@ -70,6 +75,9 @@
             { y: [0,12], opacity: [0,1] },
             { delay: 4.6 }
         )
+        await timeline([
+            ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.1, at: 4.6, delay: stagger(0.1) }],
+        ])
         // animate(
         //     "span",
         //     { y: [0,12], opacity: [0,1] },
@@ -113,6 +121,20 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section class="p-5 md:p-10">
+        <div class="flex justify-center mb-3">
+            <h2 class="text-3xl color-primary">{{ $t('stack') }}</h2>
+        </div>
+        <div class="color-primary md:mx-3 mx-0 my-3 md:my-0 bg-slate-800 p-3 rounded-lg flex flex-flow gap-2 flex-wrap">
+            <span class="badge bg-green-800 text-green-200 shadow-md uppercase inline-flex" v-for="stack in stacks" :key="stack">{{ stack }}</span>
+        </div>
+    </section>
+    <section class="p-5 md:p-10">
+        <div class="flex justify-end">
+            <h2 class="text-3xl color-primary">{{ $t('experience') }}</h2>
+        </div>
+        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">2019</div>
     </section>
 </template>
 <style>
