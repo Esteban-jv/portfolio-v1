@@ -3,5 +3,10 @@
     "about_me": "About me",
     "about_me_description": "I am a web developer. I am passionate about technology and I love learning new technologies. I love working in a team and sharing my knowledge with others.",
     "stack": "Stack",
-    "experience": "Experience"
+    "experience": "Experience",
+    "education": "Education",
+    "education_description": "Back in 2019 I graduated as a Software Development Engineer. I learned from the excellent teachers of \
+        this institution the basics of object-oriented programming, concurrent programming, databases, operating systems, \
+        introduction to artificial intelligence, among other things. I had the opportunity to work with Python, Java, C#, C++, SQL, \
+        HTML, CSS, Processing, among others."
 }

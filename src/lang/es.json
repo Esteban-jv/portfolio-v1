@@ -1,7 +1,13 @@
 {
     "web_developer":"Desarrollador web",
     "about_me": "Sobre mí",
-    "about_me_description": "Soy un desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles. Me apasiona la tecnología y me encanta aprender nuevas tecnologías. Me encanta trabajar en equipo y compartir mis conocimientos con los demás.",
+    "about_me_description": "Soy un desarrollador web con experiencia en el desarrollo de aplicaciones web y móviles. Me apasiona la \
+        tecnología y me encanta aprender nuevas tecnologías. Me encanta trabajar en equipo y compartir mis conocimientos con los demás.",
     "stack": "Tecnologías",
-    "experience": "Experiencia"
+    "experience": "Experiencia",
+    "education": "Educación",
+    "education_description": "En el año 2019 me gradue como Ingeniero en desarrollo de software, aprendí de los excelente maestros de esta \
+        institución lo que son las bases de la programación orientada a objetos, Programación concurrente, bases de datos, sistemas operativos, \
+        introducción a la inteligencia artificial entre otras cosas. Tuve la oportunidad de trabajar con Python, Java, C#, C++, SQL, HTML, CSS, \
+        Processing, entre otros."
 }

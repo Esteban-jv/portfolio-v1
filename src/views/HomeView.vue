@@ -106,28 +106,44 @@
         <!-- <h1 class="bg-slate-800 color-secondary mb-5">{{ $t('web_developer') }}</h1> -->
         <!-- <span class=" text-green-300">Some text</span> -->
     </div>
-    <section class="p-5 md:p-10">
+    <section class="p-5 md:px-10">
         <div class="md:flex inline">
-            <!-- <img src="/Profile.jpg" alt="" class="h-40 w-30 bg-auto bg-no-repeat bg-center rounded-lg"> -->
-            <div class="w-50">
-                <div class="h-40 w-40 items-center justify-center rounded-full border-[4px] border-green-300 bg-white">
-                    <img class="h-full w-full rounded-full" src="/Profile.jpg" alt="" />
+            <div class="md:w-[60%] w-full">
+                <div class="md:flex inline">
+                    <div class="w-50 flex justify-center">
+                        <div class="h-40 w-40 items-center justify-center rounded-full border-[4px] border-green-300 bg-white">
+                            <img class="h-full w-full rounded-full" src="/Profile.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div class="w-50 self-center">
+                        <div class="color-primary md:mx-3 mx-0 my-3 md:my-0 bg-slate-800 p-3 rounded-lg max-w-[600px]">
+                            <h2 class="text-2xl md:text-3xl">{{ $t('about_me') }}</h2>
+                            <p class="mt-3 text-justify">{{ $t('about_me_description') }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="w-50 self-center">
-                <div class="color-primary md:mx-3 mx-0 my-3 md:my-0 bg-slate-800 p-3 rounded-lg max-w-[600px]">
-                    <h2 class="text-2xl md:text-3xl">{{ $t('about_me') }}</h2>
-                    <p class="mt-3 text-justify">{{ $t('about_me_description') }}</p>
+            <div class="md:w-[40%] w-full">
+                <div class="bg-slate-800 p-3 rounded-lg">
+                    <div class="flex justify-center mb-3">
+                        <h2 class="text-3xl color-primary">{{ $t('stack') }}</h2>
+                    </div>
+                    <div class="color-primary md:mx-3 mx-0 my-3 md:my-0  flex flex-flow gap-2 flex-wrap">
+                        <span class="badge bg-green-800 text-green-200 shadow-md uppercase inline-flex" v-for="stack in stacks" :key="stack">{{ stack }}</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <section class="px-5 md:px-10">
+    </section>
     <section class="p-5 md:p-10">
-        <div class="flex justify-center mb-3">
-            <h2 class="text-3xl color-primary">{{ $t('stack') }}</h2>
+        <div class="flex justify-end">
+            <h2 class="text-3xl color-primary">{{ $t('education') }}</h2>
         </div>
-        <div class="color-primary md:mx-3 mx-0 my-3 md:my-0 bg-slate-800 p-3 rounded-lg flex flex-flow gap-2 flex-wrap">
-            <span class="badge bg-green-800 text-green-200 shadow-md uppercase inline-flex" v-for="stack in stacks" :key="stack">{{ stack }}</span>
+        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">2019. Universidad Politécnica de Chiapas.</div>
+        <div class="color-primary mt-3">
+            <p class="text-justify">{{ $t('education_description') }}</p>
         </div>
     </section>
     <section class="p-5 md:p-10">
