@@ -51,6 +51,8 @@
             [horizontalJ.value, draw(1), { duration: 0.2, at: 0.6, delay: stagger(0.2) }],
             [horizontalJ2.value, draw(1), { duration: 0.2, at: 0.6, delay: stagger(0.2) }],
 
+            // ['circle', draw(1), { duration: 0.1, at: 0.7, delay: stagger(0.1, { start: 0.7}) }],
+
             [shapeOutside.value, draw(1), { duration: 0.6, at: 0.8, delay: stagger(0.1) }],
             [shapeInisde.value, draw(1), { duration: 0.6, at: 0.9, delay: stagger(0.1) }],
         ])
@@ -96,15 +98,22 @@
             <path ref="verticalJ" d="M 94 72 l -41 24 Z" pathLength="1"/>
             <path ref="horizontalJ" d="M 94 72 l 0 -45 Z" pathLength="1"/>
             <path ref="horizontalJ2" d="M94 27 l -21 12.5" pathLength="1"/>
+            <circle id="pointA" cx="50" cy="49" r="4" pathLength="1" fill="#005900"/>
+            <circle id="pointB" cx="7" cy="27" r="4" fill="#005900" pathLength="1"/>
+            <circle id="pointC" cx="7" cy="48" r="4" fill="#005900" pathLength="1"/>
+            <circle id="pointD" cx="7" cy="72" r="4" fill="#005900" pathLength="1"/>
+            <circle id="pointE" cx="49" cy="96" r="4" fill="#005900" pathLength="1"/>
+
+            <circle id="pointF" cx="94" cy="72" r="4" fill="#005900"/>
+            <circle id="pointG" cx="94" cy="27" r="4" fill="#005900"/>
+
             <path ref="shapeOutside" d="M 6 27 L 6 72 L 50 98 L 94 72 L 94 27 L 50 6 Z" pathLength="1"></path>
             <path ref="shapeInisde" d="M 28 38 L 28 61 L 50 71 L 72 61 L 72 38 L 50 28 Z" pathLength="1"></path>
         </svg>
     </div>
-    <div class="p-5 md:p-10">
-        <h1 class="bg-primary color-primary text-3xl md:text-5xl">José Esteban Juárez Velázquez</h1>
-        <h1 class="bg-primary color-secondary text-2xl md:text-3xl mt-3"> {{ $t('web_developer') }}</h1>
-        <!-- <h1 class="bg-slate-800 color-secondary mb-5">{{ $t('web_developer') }}</h1> -->
-        <!-- <span class=" text-green-300">Some text</span> -->
+    <div class="px-5 md:px-10 py-3">
+        <h1 class="bg-primary color-primary text-3xl md:text-5xl kanit-regular">José Esteban Juárez Velázquez</h1>
+        <h1 class="bg-primary color-secondary text-2xl md:text-3xl mt-1 kanit-regular"> {{ $t('web_developer') }}</h1>
     </div>
     <section class="p-5 md:px-10">
         <div class="md:flex inline">
@@ -117,7 +126,7 @@
                     </div>
                     <div class="w-50 self-center">
                         <div class="color-primary md:mx-3 mx-0 my-3 md:my-0 bg-slate-800 p-3 rounded-lg max-w-[600px]">
-                            <h2 class="text-2xl md:text-3xl">{{ $t('about_me') }}</h2>
+                            <h2 class="text-2xl md:text-3xl kanit-regular">{{ $t('about_me') }}</h2>
                             <p class="mt-3 text-justify">{{ $t('about_me_description') }}</p>
                         </div>
                     </div>
@@ -126,7 +135,7 @@
             <div class="md:w-[40%] w-full">
                 <div class="bg-slate-800 p-3 rounded-lg">
                     <div class="flex justify-center mb-3">
-                        <h2 class="text-3xl color-primary">{{ $t('stack') }}</h2>
+                        <h2 class="text-3xl color-primary kanit-regular">{{ $t('stack') }}</h2>
                     </div>
                     <div class="color-primary md:mx-3 mx-0 my-3 md:my-0  flex flex-flow gap-2 flex-wrap">
                         <span class="badge bg-green-800 text-green-200 shadow-md uppercase inline-flex" v-for="stack in stacks" :key="stack">{{ stack }}</span>
@@ -138,8 +147,8 @@
     <section class="px-5 md:px-10">
     </section>
     <section class="p-5 md:p-10">
-        <div class="flex justify-end">
-            <h2 class="text-3xl color-primary">{{ $t('education') }}</h2>
+        <div class="flex justify-start pb-1">
+            <h2 class="text-3xl color-primary kanit-regular">{{ $t('education') }}</h2>
         </div>
         <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">2019. Universidad Politécnica de Chiapas.</div>
         <div class="color-primary mt-3">
@@ -147,8 +156,8 @@
         </div>
     </section>
     <section class="p-5 md:p-10">
-        <div class="flex justify-end">
-            <h2 class="text-3xl color-primary">{{ $t('experience') }}</h2>
+        <div class="flex justify-start pb-1">
+            <h2 class="text-3xl color-primary kanit-regular">{{ $t('experience') }}</h2>
         </div>
         <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">2019</div>
     </section>
@@ -183,9 +192,8 @@
         right: 0;
         bottom: 0;
     }
-  
-  circle {
-    transform-origin: 100px 100px;
-    transform: rotate(-90deg);
-  }
+    circle {
+        visibility: hidden;
+        position: absolute;
+    }
 </style>
