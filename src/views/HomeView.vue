@@ -76,7 +76,7 @@
             { delay: 4.6 }
         )
         await timeline([
-            ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.1, at: 4.6, delay: stagger(0.1) }],
+            ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 4.6, delay: stagger(0.05) }],
         ])
         // animate(
         //     "span",
