@@ -9,6 +9,11 @@
   --app-bg-secondary: #141C35;
   --app-color-secondary: #636B83;
   --app-color-mark: #77ACAF;
+
+  /* font-family: "Genos", sans-serif; */
+  /* font-optical-sizing: auto; */
+  /* font-weight: 25px; */
+  /* font-style: normal; */
 }
 .full-body {
   margin: 0;
