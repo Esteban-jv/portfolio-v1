@@ -5,8 +5,15 @@
     "stack": "Stack",
     "experience": "Experience",
     "education": "Education",
+    "main_activities": "Main activities",
+    "current": "Current",
     "education_description": "Back in 2019 I graduated as a Software Development Engineer. I learned from the excellent teachers of \
         this institution the basics of object-oriented programming, concurrent programming, databases, operating systems, \
         introduction to artificial intelligence, among other things. I had the opportunity to work with Python, Java, C#, C++, SQL, \
-        HTML, CSS, Processing, among others."
+        HTML, CSS, Processing, among others.",
+    "vtimes": {
+        "description":"Here I learned to work with VueJS in its version 2, as well as learning to use AWS services. I learned design \
+        patterns such as Builder, Factory, Singleton, among others. I learned to work with SQL Server, providing maintenance and creating \
+        new procedures. I also learned a little about Wordpress and how to create Landing pages."
+    }
 }

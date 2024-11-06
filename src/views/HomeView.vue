@@ -159,7 +159,11 @@
         <div class="flex justify-start pb-1">
             <h2 class="text-3xl color-primary kanit-regular">{{ $t('experience') }}</h2>
         </div>
-        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">2019</div>
+        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">01/2024 - {{ $t('current') }}. Vacation Times</div>
+        <div class="color-primary mt-3"> <!-- Experience container -->
+            <p class="text-justify">{{ $t('vtimes.description') }}</p>
+            <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
+        </div>
     </section>
 </template>
 <style>
