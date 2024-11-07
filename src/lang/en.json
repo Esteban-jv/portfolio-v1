@@ -14,6 +14,29 @@
     "vtimes": {
         "description":"Here I learned to work with VueJS in its version 2, as well as learning to use AWS services. I learned design \
         patterns such as Builder, Factory, Singleton, among others. I learned to work with SQL Server, providing maintenance and creating \
-        new procedures. I also learned a little about Wordpress and how to create Landing pages."
+        new procedures. I also learned a little about Wordpress and how to create Landing pages.",
+        "activities": [
+            "Developed a web application for the company's internal use.",
+            "Developed a web application for the company's clients.",
+            "Developed a web application for the company's clients.",
+            "Developed a web application for the company's clients.",
+            "Developed a web application for the company's clients."
+        ]
+    },
+    "um": {
+        "description": "In this job I had the oportinity of working in the studens inscription process and updating of data.",
+        "activities": [
+            "Requierement survey",
+            "Development of web applications.",
+        ]
+    },
+    "ich": {
+        "description": "In this enterprise I worked in a big team of software development. My main roll was design and develop graphic interfaces  \
+            for web application and mobile apps in AngularJS and IONIC.",
+        "activities": [
+            "Scrum methodology.",
+            "Testing web and mobile apps.",
+            "Design and development of graphic interfaces.",
+        ]
     }
 }

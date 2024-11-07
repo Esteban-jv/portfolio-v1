@@ -1,6 +1,6 @@
 <script setup>
     import { onMounted, ref } from 'vue'
-    import { timeline, stagger, animate } from "motion"
+    import { timeline, stagger, animate, scroll } from "motion"
 
     const verticalLineE1 = ref(null)
     const verticalLineE2 = ref(null)
@@ -13,6 +13,13 @@
 
     const shapeOutside = ref(null)
     const shapeInisde = ref(null)
+
+    const vtimes = ref(null)
+    const vtimesProgress = ref(0)
+    const um = ref(null)
+    const umProgress = ref(0)
+    const ich = ref(null)
+    const ichProgress = ref(0)
 
     const stacks = ref([
         'html', 'css', 'javascript', 'vue', 'tailwindcss', 'laravel', 'php', 'mysql', 'git', 'github', 'linux', 'nginx', 'apache', 'postman',
@@ -85,6 +92,16 @@
         //     { y: [0,12], opacity: [0,1] },
         //     { delay: 4.5 }
         // )
+
+        scroll((info) => {
+                // console.log(info.y) // e.g. [100, 900]
+                // console.log(info.y.progress) // e.g. 0.5
+                vtimesProgress.value = info.y.progress
+            },
+            { target: vtimes.value, offset: ["start end", "end end"] }
+        )
+        scroll(({y}) => { umProgress.value = y.progress }, { target: um.value, offset: ["start end", "end end"] })
+        scroll(({y}) => { ichProgress.value = y.progress }, { target: ich.value, offset: ["start end", "end end"] })
     })
 </script>
 <template>
@@ -159,10 +176,79 @@
         <div class="flex justify-start pb-1">
             <h2 class="text-3xl color-primary kanit-regular">{{ $t('experience') }}</h2>
         </div>
-        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">01/2024 - {{ $t('current') }}. Vacation Times</div>
-        <div class="color-primary mt-3"> <!-- Experience container -->
-            <p class="text-justify">{{ $t('vtimes.description') }}</p>
-            <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
+        <div class="text-green-500 m-2 text-sm cursor-pointer">
+            {{ vtimesProgress }}
+            {{ umProgress }}
+            {{ ichProgress }}
+        </div>
+        <div class="md:flex inline">
+            <div class="md:w-[20%] w-full sticky overflow-hidden top-0">
+                <div class="md:inline flex justify-center gap-2">
+                    <div
+                        class="text-green-600 md:m-2 text-xl bg-slate-800 hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
+                        :class="{ 'text-green-300 bg-slate-600': vtimesProgress > 0 && vtimesProgress < 1 }"
+                    >{{ $t('current') }}</div>
+                    <div 
+                        class="text-green-600 md:m-2 text-xl bg-slate-800 hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
+                        :class="{ 'text-green-300 bg-slate-600': umProgress > 0 && umProgress < 1 }"
+                    >2020</div>
+                    <div
+                        class="text-green-600 md:m-2 text-xl bg-slate-800 hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
+                        :class="{ 'text-green-300 bg-slate-600': ichProgress > 0 && ichProgress < 1 }"
+                    >2019</div>
+                </div>
+            </div>
+            <div class="md:w-[80%] w-full">
+                <article ref="experience" class="">
+                    <div ref="vtimes">
+                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">01/2022 - {{ $t('current') }}. Vacation Times</div>
+                        <div class="color-primary mt-3"> <!-- Experience container -->
+                            <p class="text-justify">{{ $t('vtimes.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('vtimes.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('vtimes.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('vtimes.description') }}</p>
+                            <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
+                            <ul class="list-disc list-inside">
+                                <li v-for="activity in $tm('vtimes.activities')" :key="activity">{{ activity.loc.source }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div ref="um">
+                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">09/2019 - 01/2022. Universidad Maya</div>
+                        <div class="color-primary mt-3"> <!-- Experience container -->
+                            <p class="text-justify">{{ $t('um.description') }}</p>
+                            <p class="text-justify">{{ $t('um.description') }}</p>
+                            <p class="text-justify">{{ $t('um.description') }}</p>
+                            <p class="text-justify">{{ $t('um.description') }}</p>
+                            <p class="text-justify">{{ $t('um.description') }}</p>
+                            <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
+                            <ul class="list-disc list-inside">
+                                <li v-for="activity in $tm('um.activities')" :key="activity">{{ activity.loc.source }}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div ref="ich">
+                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">02/2019 - 09/2022. Red Laboral ICH</div>
+                        <div class="color-primary mt-3"> <!-- Experience container -->
+                            <p class="text-justify">{{ $t('ich.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
+                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
+                            <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
+                            <ul class="list-disc list-inside">
+                                <li v-for="activity in $tm('ich.activities')" :key="activity">{{ activity.loc.source }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 </template>

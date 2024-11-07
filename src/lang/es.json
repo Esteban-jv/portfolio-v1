@@ -15,6 +15,32 @@
     "vtimes": {
         "description": "Aquí aprendí a trabajar con VueJS en su versión 2, además de aprender a usar servicios de AWS. Aprendí patrones de \
         diseño como Builder, Factory, Singleton, entre otros. Aprendí a trabajar con SQL Server dando mantenimiento y creando procedures nuevos. \
-        Además tambien aprendí a un poco de Wordpress y a crear Landing pages."
+        Además tambien aprendí a un poco de Wordpress y a crear Landing pages.",
+        "activities": [
+            "Migración de sistemas. (Actualización de versión de laravel)",
+            "Desarrollo en PHP, Laravel, Wordpress y VueJS",
+            "Mantener y crear nuevos patrones de diseño para backend",
+            "Mantener y crear nuevos procedimientos almacenados en SQL Server",
+            "Despliegue en windows server y AWS EC2",
+            "Actualización y automatización de certificados de seguridad SSL",
+            "Creación de servidor de websockets",
+            "Creación y despliegue de landing pages."
+        ]
+    },
+    "um": {
+        "description": "En este trabajo tuve la oportunidad de participar en el proceso de inscripción de alumnos y actualización de datos.",
+        "activities": [
+            "Levantamiento de requisitos directamente con el cliente.",
+            "Desarrollo de aplicaciones web.",
+        ]
+    },
+    "ich": {
+        "description": "En este empresa me desempeñé en un equipo grande de desarrollo donde mi función principal fue desarrollar interfaces  \
+            gráficas, frontend para aplicaciones web y móviles en AngularJS y IONIC.",
+        "activities": [
+            "Trabajo bajo metodología Scrum.",
+            "Testing de aplicaciones web y móviles.",
+            "Diseño de interfaces gráficas.",
+        ]
     }
 }
