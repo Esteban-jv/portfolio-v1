@@ -31,7 +31,8 @@
 
     onMounted(async () => {
         console.log(tm('vtimes.activities'))
-        console.log(tm('vtimes.activities')[0].loc.source)
+        console.log(tm('vtimes.activities')[0].b)
+        console.log(tm('vtimes.activities')[0].b.s)
 
         const draw = (progress) => ({
             // This property makes the line "draw" in when animated
@@ -214,7 +215,7 @@
                             <p class="text-justify w-80">{{ $t('vtimes.description') }}</p>
                             <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
                             <ul class="list-disc list-inside">
-                                <li v-for="activity in $tm('vtimes.activities')" :key="activity">{{ activity.loc.source }}</li>
+                                <li v-for="activity in $tm('vtimes.activities')" :key="activity">{{ /*activity.loc.source*/ activity.b.s }}</li>
                             </ul>
                         </div>
                     </div>
@@ -229,7 +230,7 @@
                             <p class="text-justify">{{ $t('um.description') }}</p>
                             <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
                             <ul class="list-disc list-inside">
-                                <li v-for="activity in $tm('um.activities')" :key="activity">{{ activity.loc.source }}</li>
+                                <li v-for="activity in $tm('um.activities')" :key="activity">{{ activity.b.s }}</li>
                             </ul>
                         </div>
                     </div>
@@ -248,7 +249,7 @@
                             <p class="text-justify w-80">{{ $t('ich.description') }}</p>
                             <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
                             <ul class="list-disc list-inside">
-                                <li v-for="activity in $tm('ich.activities')" :key="activity">{{ activity.loc.source }}</li>
+                                <li v-for="activity in $tm('ich.activities')" :key="activity">{{ activity.b.s }}</li>
                             </ul>
                         </div>
                     </div>
