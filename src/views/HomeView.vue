@@ -5,6 +5,8 @@
 
     const { tm } = useI18n()
 
+    const TA = ref('') // Translate Access
+
     const verticalLineE1 = ref(null)
     const verticalLineE2 = ref(null)
     const verticalLineE3 = ref(null)
@@ -23,6 +25,9 @@
     const umProgress = ref(0)
     const ich = ref(null)
     const ichProgress = ref(0)
+    const progressBarVt = ref(0)
+    const progressBarUm = ref(0)
+    const progressBarIch = ref(0)
 
     const stacks = ref([
         'html', 'css', 'javascript', 'vue', 'tailwindcss', 'laravel', 'php', 'mysql', 'git', 'github', 'linux', 'nginx', 'apache', 'postman',
@@ -30,9 +35,16 @@
     ])
 
     onMounted(async () => {
-        console.log(tm('vtimes.activities'))
-        console.log(tm('vtimes.activities')[0].b)
-        console.log(tm('vtimes.activities')[0].b.s)
+        // console.warn(import.meta.env.VITE_APP_MODE)
+        if(import.meta.env.VITE_APP_MODE === 'production') {
+            TA.value = 'b.s'
+        } else {
+            TA.value = 'loc.source'
+        }
+        // console.log(TA.value)
+        // console.log(tm('vtimes.activities'))
+        // console.log(getValueKeyFromString(tm('vtimes.activities')[0], TA.value))
+        
 
         const draw = (progress) => ({
             // This property makes the line "draw" in when animated
@@ -93,22 +105,31 @@
         await timeline([
             ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 4.6, delay: stagger(0.05) }],
         ])
-        // animate(
-        //     "span",
-        //     { y: [0,12], opacity: [0,1] },
-        //     { delay: 4.5 }
-        // )
 
         scroll((info) => {
-                // console.log(info.y) // e.g. [100, 900]
-                // console.log(info.y.progress) // e.g. 0.5
                 vtimesProgress.value = info.y.progress
             },
             { target: vtimes.value, offset: ["start end", "end end"] }
         )
         scroll(({y}) => { umProgress.value = y.progress }, { target: um.value, offset: ["start end", "end end"] })
         scroll(({y}) => { ichProgress.value = y.progress }, { target: ich.value, offset: ["start end", "end end"] })
+        scroll(
+            animate(progressBarVt.value, {  scaleX: [0, 1] }),
+            { target: vtimes.value, offset: ["start end", "end end"] }
+        )
+        scroll(
+            animate(progressBarUm.value, {  scaleX: [0, 1] }),
+            { target: um.value, offset: ["start end", "end end"] }
+        )
+        scroll(
+            animate(progressBarIch.value, {  scaleX: [0, 1] }),
+            { target: ich.value, offset: ["start end", "end end"] }
+        )
     })
+
+    const getValueKeyFromString = (tr, str) => {
+        return str.split('.').reduce((o, i) => o[i],tr)
+    }
 </script>
 <template>
     <div id="logo-loader">
@@ -182,27 +203,30 @@
         <div class="flex justify-start pb-1">
             <h2 class="text-3xl color-primary kanit-regular">{{ $t('experience') }}</h2>
         </div>
-        <div class="text-green-500 m-2 text-sm cursor-pointer">
+        <!-- <div class="text-green-500 m-2 text-sm cursor-pointer">
             {{ vtimesProgress }}
             {{ umProgress }}
             {{ ichProgress }}
-        </div>
+        </div> -->
         <div class="md:flex inline">
-            <div class="md:w-[20%] w-full sticky overflow-hidden top-0">
+            <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] bg-slate-900">
                 <div class="md:inline flex justify-center gap-2">
                     <div
-                        class="text-green-600 md:m-2 text-xl bg-slate-800 hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
-                        :class="{ 'text-green-300 bg-slate-600': vtimesProgress > 0 && vtimesProgress < 1 }"
+                        class=" md:m-2 text-xl hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
+                        :class="[ vtimesProgress > 0 && vtimesProgress < 1 ? 'text-green-300 bg-slate-600' : 'text-green-600 bg-slate-800' ]"
                     >{{ $t('current') }}</div>
                     <div 
-                        class="text-green-600 md:m-2 text-xl bg-slate-800 hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
-                        :class="{ 'text-green-300 bg-slate-600': umProgress > 0 && umProgress < 1 }"
+                        class="md:m-2 text-xl hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
+                        :class="[ umProgress > 0 && umProgress < 1 ? 'text-green-300 bg-slate-600' : 'text-green-600 bg-slate-800' ]"
                     >2020</div>
                     <div
-                        class="text-green-600 md:m-2 text-xl bg-slate-800 hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
-                        :class="{ 'text-green-300 bg-slate-600': ichProgress > 0 && ichProgress < 1 }"
+                        class="md:m-2 text-xl hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
+                        :class="[ ichProgress > 0 && ichProgress < 1 ? 'text-green-300 bg-slate-600' : 'text-green-600 bg-slate-800' ]"
                     >2019</div>
                 </div>
+                <div ref="progressBarVt" class="progress bg-green-500"></div>
+                <div ref="progressBarUm" class="progress bg-green-400"></div>
+                <div ref="progressBarIch" class="progress bg-green-300"></div>
             </div>
             <div class="md:w-[80%] w-full">
                 <article ref="experience" class="">
@@ -210,12 +234,9 @@
                         <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">01/2022 - {{ $t('current') }}. Vacation Times</div>
                         <div class="color-primary mt-3"> <!-- Experience container -->
                             <p class="text-justify">{{ $t('vtimes.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('vtimes.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('vtimes.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('vtimes.description') }}</p>
                             <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
                             <ul class="list-disc list-inside">
-                                <li v-for="activity in $tm('vtimes.activities')" :key="activity">{{ /*activity.loc.source*/ activity.b.s }}</li>
+                                <li v-for="activity in $tm('vtimes.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
                         </div>
                     </div>
@@ -224,13 +245,9 @@
                         <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">09/2019 - 01/2022. Universidad Maya</div>
                         <div class="color-primary mt-3"> <!-- Experience container -->
                             <p class="text-justify">{{ $t('um.description') }}</p>
-                            <p class="text-justify">{{ $t('um.description') }}</p>
-                            <p class="text-justify">{{ $t('um.description') }}</p>
-                            <p class="text-justify">{{ $t('um.description') }}</p>
-                            <p class="text-justify">{{ $t('um.description') }}</p>
                             <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
                             <ul class="list-disc list-inside">
-                                <li v-for="activity in $tm('um.activities')" :key="activity">{{ activity.b.s }}</li>
+                                <li v-for="activity in $tm('um.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
                         </div>
                     </div>
@@ -240,16 +257,9 @@
                         <div class="color-primary mt-3"> <!-- Experience container -->
                             <p class="text-justify">{{ $t('ich.description') }}</p>
                             <p class="text-justify w-80">{{ $t('ich.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
                             <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
                             <ul class="list-disc list-inside">
-                                <li v-for="activity in $tm('ich.activities')" :key="activity">{{ activity.b.s }}</li>
+                                <li v-for="activity in $tm('ich.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
                         </div>
                     </div>
@@ -291,5 +301,15 @@
     circle {
         visibility: hidden;
         position: absolute;
+    }
+
+    /**progress  */
+    .progress {
+        position: sticky;
+        left: 0;
+        right: 0;
+        height: 5px;
+        top: 30px;
+        transform: scaleX(0);
     }
 </style>
