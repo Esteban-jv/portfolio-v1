@@ -31,6 +31,7 @@
 
     onMounted(async () => {
         console.log(tm('vtimes.activities'))
+        console.log(tm('vtimes.activities')[0].loc.source)
 
         const draw = (progress) => ({
             // This property makes the line "draw" in when animated
