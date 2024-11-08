@@ -1,6 +1,9 @@
 <script setup>
     import { onMounted, ref } from 'vue'
     import { timeline, stagger, animate, scroll } from "motion"
+    import { useI18n } from 'vue-i18n'
+
+    const { tm } = useI18n()
 
     const verticalLineE1 = ref(null)
     const verticalLineE2 = ref(null)
@@ -27,6 +30,7 @@
     ])
 
     onMounted(async () => {
+        console.log(tm('vtimes.activities'))
 
         const draw = (progress) => ({
             // This property makes the line "draw" in when animated
