@@ -1,5 +1,5 @@
 <script setup>
-    import { onMounted, ref } from 'vue'
+    import { onMounted, ref, inject } from 'vue'
     import { timeline, stagger, animate, scroll } from "motion"
     import { useI18n } from 'vue-i18n'
 
@@ -127,9 +127,7 @@
         )
     })
 
-    const getValueKeyFromString = (tr, str) => {
-        return str.split('.').reduce((o, i) => o[i],tr)
-    }
+    const getValueKeyFromString = inject('getValueKeyFromString')
 </script>
 <template>
     <div id="logo-loader">
@@ -199,8 +197,8 @@
             <p class="text-justify">{{ $t('education_description') }}</p>
         </div>
     </section>
-    <section class="p-5 md:p-10">
-        <div class="flex justify-start pb-1">
+    <section class="">
+        <div class="flex justify-start pb-1 p-5 md:p-10">
             <h2 class="text-3xl color-primary kanit-regular">{{ $t('experience') }}</h2>
         </div>
         <!-- <div class="text-green-500 m-2 text-sm cursor-pointer">
@@ -209,39 +207,62 @@
             {{ ichProgress }}
         </div> -->
         <div class="md:flex inline">
-            <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] bg-slate-900">
-                <div class="md:inline flex justify-center gap-2">
+            <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] bg-slate-900 md:pl-10">
+                <div class="md:inline flex justify-evenly gap-0">
                     <div
-                        class=" md:m-2 text-xl hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
+                        class="md:m-2 text-xl hover:bg-slate-600 p-2 cursor-pointer md:w-[90%] w-full text-center"
                         :class="[ vtimesProgress > 0 && vtimesProgress < 1 ? 'text-green-300 bg-slate-600' : 'text-green-600 bg-slate-800' ]"
                     >{{ $t('current') }}</div>
                     <div 
-                        class="md:m-2 text-xl hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
+                        class="md:m-2 text-xl hover:bg-slate-600 p-2 cursor-pointer md:w-[90%] w-full text-center"
                         :class="[ umProgress > 0 && umProgress < 1 ? 'text-green-300 bg-slate-600' : 'text-green-600 bg-slate-800' ]"
                     >2020</div>
                     <div
-                        class="md:m-2 text-xl hover:bg-slate-600 p-2 rounded-sm cursor-pointer"
+                        class="md:m-2 text-xl hover:bg-slate-600 p-2 cursor-pointer md:w-[90%] w-full text-center"
                         :class="[ ichProgress > 0 && ichProgress < 1 ? 'text-green-300 bg-slate-600' : 'text-green-600 bg-slate-800' ]"
                     >2019</div>
                 </div>
-                <div ref="progressBarVt" class="progress bg-green-500"></div>
-                <div ref="progressBarUm" class="progress bg-green-400"></div>
-                <div ref="progressBarIch" class="progress bg-green-300"></div>
+                <div class="md:mx-2">
+                    <div ref="progressBarVt" class="progress bg-green-500"></div>
+                    <div ref="progressBarUm" class="progress bg-green-400"></div>
+                    <div ref="progressBarIch" class="progress bg-green-300"></div>
+                </div>
             </div>
-            <div class="md:w-[80%] w-full">
+            <div class="md:w-[80%] w-full px-5 md:px-10">
                 <article ref="experience" class="">
-                    <div ref="vtimes">
-                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">01/2022 - {{ $t('current') }}. Vacation Times</div>
+                    <div ref="vtimes" class="experience">
+                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3 kanit-regular">01/2022 - {{ $t('current') }}. Vacation Times</div>
+                        <div class="p-2 rounded-lg">
+                            <div class="color-primary mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
+                                <span class="badge bg-green-800 text-green-200 shadow-md inline-flex" v-for="st in $tm('vtimes.stack')" :key="st">{{ getValueKeyFromString(st, TA) }}</span>
+                            </div>
+                        </div>
+                        <span class="flex justify-end">
+                            <a href="https://vacationstimes.com/es/home/" target="_blank" class="text-blue-500 text-sm">{{ $t('vtimes.url') }}</a>
+                        </span>
                         <div class="color-primary mt-3"> <!-- Experience container -->
-                            <p class="text-justify">{{ $t('vtimes.description') }}</p>
-                            <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
-                            <ul class="list-disc list-inside">
+                            <p class="text-justify bg-slate-800 p-2 rounded-md">{{ $t('vtimes.description') }}</p>
+                            <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_activities') }}</h2>
+                            <ul class="list-disc list-inside text-sm">
                                 <li v-for="activity in $tm('vtimes.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
+                            <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
+                            <div class="flex bg-secondary p-3 my-2">
+                                <div class="w-[40%]">
+                                    <a href="https://www.organiwork.com/" class="text-orange-300 font-bold">Organiwork</a>
+                                </div>
+                                <div class="w-[60%] text-sm">{{ $t('vtimes.organiwork_description') }}</div>
+                            </div>
+                            <div class="flex bg-secondary p-3 my-2">
+                                <div class="w-[40%]">
+                                    <a href="https://www.modern-restaurant.com/" class="text-blue-500 font-bold">Modern Restaurant</a>
+                                </div>
+                                <div class="w-[60%] text-sm">{{ $t('vtimes.modern_restaurant_description') }}</div>
+                            </div>
                         </div>
                     </div>
 
-                    <div ref="um">
+                    <div ref="um" class="experience">
                         <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">09/2019 - 01/2022. Universidad Maya</div>
                         <div class="color-primary mt-3"> <!-- Experience container -->
                             <p class="text-justify">{{ $t('um.description') }}</p>
@@ -252,7 +273,7 @@
                         </div>
                     </div>
 
-                    <div ref="ich">
+                    <div ref="ich" class="experience">
                         <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">02/2019 - 09/2022. Red Laboral ICH</div>
                         <div class="color-primary mt-3"> <!-- Experience container -->
                             <p class="text-justify">{{ $t('ich.description') }}</p>
@@ -263,6 +284,8 @@
                             </ul>
                         </div>
                     </div>
+
+                    
                 </article>
             </div>
         </div>

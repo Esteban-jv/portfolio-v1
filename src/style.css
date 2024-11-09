@@ -142,5 +142,8 @@
 .badge {
   font-size: small;
   padding: 0.2rem 0.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0.3rem;
+}
+.experience {
+  margin-bottom: 3rem;
 }

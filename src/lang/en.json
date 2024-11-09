@@ -7,21 +7,31 @@
     "education": "Education",
     "main_activities": "Main activities",
     "current": "Current",
+    "main_development": "Main development",
     "education_description": "Back in 2019 I graduated as a Software Development Engineer. I learned from the excellent teachers of \
         this institution the basics of object-oriented programming, concurrent programming, databases, operating systems, \
         introduction to artificial intelligence, among other things. I had the opportunity to work with Python, Java, C#, C++, SQL, \
         HTML, CSS, Processing, among others.",
     "vtimes": {
+        "url": "vacationstimes.com",
+        "stack": [
+            "Laravel", "PHP", "VueJS", "Wordpress", "SQL Server", "AWS", "HTML", "CSS", "Javascript", "Bootstrap", "Tailwindcss"
+        ],
         "description":"Here I learned to work with VueJS in its version 2, as well as learning to use AWS services. I learned design \
         patterns such as Builder, Factory, Singleton, among others. I learned to work with SQL Server, providing maintenance and creating \
         new procedures. I also learned a little about Wordpress and how to create Landing pages.",
         "activities": [
-            "Developed a web application for the company's internal use.",
-            "Developed a web application for the company's clients.",
-            "Developed a web application for the company's clients.",
-            "Developed a web application for the company's clients.",
-            "Developed a web application for the company's clients."
-        ]
+            "Sytem migration. (Laravel version update)",
+            "PHP, Laravel, Wordpress and VueJS development",
+            "Management and creation of new design patterns for backend",
+            "Management and creation of new stored procedures in SQL Server",
+            "Windows server and AWS EC2 deployment",
+            "Security SSL certificates update and automation",
+            "Websockets server creation",
+            "Landing pages creation and deployment."
+        ],
+        "organiwork_description": "Payroll system for personnel administration, records, positions, salaries and benefits.",
+        "modern_restaurant_description": "Restaurant management POS system, real-time orders and inventory management",
     },
     "um": {
         "description": "In this job I had the oportinity of working in the studens inscription process and updating of data.",

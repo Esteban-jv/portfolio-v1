@@ -8,11 +8,16 @@
     "education": "Educación",
     "main_activities": "Actividades principales",
     "current": "Actual",
+    "main_development": "Desarrollo principal",
     "education_description": "En el año 2019 me gradue como Ingeniero en desarrollo de software, aprendí de los excelente maestros de esta \
         institución lo que son las bases de la programación orientada a objetos, Programación concurrente, bases de datos, sistemas operativos, \
         introducción a la inteligencia artificial entre otras cosas. Tuve la oportunidad de trabajar con Python, Java, C#, C++, SQL, HTML, CSS, \
         Processing, entre otros.",
     "vtimes": {
+        "url": "vacationstimes.com",
+        "stack": [
+            "Laravel", "PHP", "VueJS", "Wordpress", "SQL Server", "AWS", "HTML", "CSS", "Javascript", "Bootstrap", "Tailwindcss"
+        ],
         "description": "Aquí aprendí a trabajar con VueJS en su versión 2, además de aprender a usar servicios de AWS. Aprendí patrones de \
         diseño como Builder, Factory, Singleton, entre otros. Aprendí a trabajar con SQL Server dando mantenimiento y creando procedures nuevos. \
         Además tambien aprendí a un poco de Wordpress y a crear Landing pages.",
@@ -25,7 +30,9 @@
             "Actualización y automatización de certificados de seguridad SSL",
             "Creación de servidor de websockets",
             "Creación y despliegue de landing pages."
-        ]
+        ],
+        "organiwork_description": "Sistema de nóminas para la administración del personal, fichas, puestos, salarios y beneficios.",
+        "modern_restaurant_description": "Sistema POS de gestión de restaurantes, comandas a tiempo real y administración de inventario",
     },
     "um": {
         "description": "En este trabajo tuve la oportunidad de participar en el proceso de inscripción de alumnos y actualización de datos.",

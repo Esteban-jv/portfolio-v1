@@ -12,7 +12,12 @@ const i18nPlugin = {
     }
 }
 
+const $getValueKeyFromString = (tr, str) => {
+    return str.split('.').reduce((o, i) => o[i],tr)
+}
+
 createApp(App)
+    .provide('getValueKeyFromString',$getValueKeyFromString)
     .use(i18n)
     .use(i18nPlugin)
     .use(createPinia())
