@@ -5,6 +5,7 @@
     import { usePreferences } from '../stores/usePreferences';
 
     const { tm } = useI18n()
+    const preferences = usePreferences()
 
     const TA = ref('') // Translate Access
 
@@ -158,8 +159,8 @@
         </svg>
     </div>
     <div class="px-5 md:px-10 py-3">
-        <h1 class="bg-primary color-primary text-3xl md:text-5xl kanit-regular">José Esteban Juárez Velázquez</h1>
-        <h1 class="bg-primary color-secondary text-2xl md:text-3xl mt-1 kanit-regular"> {{ $t('web_developer') }}</h1>
+        <h1 class="dark:text-slate-300 text-slate-800 text-3xl md:text-5xl kanit-regular">José Esteban Juárez Velázquez</h1>
+        <h1 class="text-slate-500 text-2xl md:text-3xl mt-1 kanit-regular"> {{ $t('web_developer') }}</h1>
     </div>
     <section class="p-5 md:px-10">
         <div class="md:flex inline">
@@ -171,7 +172,7 @@
                         </div>
                     </div>
                     <div class="w-50 self-center">
-                        <div class="color-primary md:mx-3 mx-0 my-3 md:my-0 bg-slate-800 p-3 rounded-lg max-w-[600px]">
+                        <div class="dark:text-slate-300 text-slate-800 md:mx-3 mx-0 my-3 md:my-0 dark:bg-slate-800 bg-white p-3 rounded-lg max-w-[600px]">
                             <h2 class="text-2xl md:text-3xl kanit-regular">{{ $t('about_me') }}</h2>
                             <p class="mt-3 text-justify">{{ $t('about_me_description') }}</p>
                         </div>
@@ -179,11 +180,11 @@
                 </div>
             </div>
             <div class="md:w-[40%] w-full">
-                <div class="bg-slate-800 p-3 rounded-lg">
+                <div class="dark:bg-slate-800 bg-white p-3 rounded-lg">
                     <div class="flex justify-center mb-3">
-                        <h2 class="text-3xl color-primary kanit-regular">{{ $t('stack') }}</h2>
+                        <h2 class="text-3xl dark:text-slate-300 text-slate-800 kanit-regular">{{ $t('stack') }}</h2>
                     </div>
-                    <div class="color-primary md:mx-3 mx-0 my-3 md:my-0  flex flex-flow gap-2 flex-wrap">
+                    <div class="dark:text-slate-300 text-slate-800 md:mx-3 mx-0 my-3 md:my-0  flex flex-flow gap-2 flex-wrap">
                         <span class="badge bg-green-800 text-green-200 shadow-md uppercase inline-flex" v-for="stack in stacks" :key="stack">{{ stack }}</span>
                     </div>
                 </div>
@@ -194,31 +195,31 @@
     </section>
     <section class="p-5 md:p-10">
         <div class="flex justify-start pb-1">
-            <h2 class="text-3xl color-primary kanit-regular">{{ $t('education') }}</h2>
+            <h2 class="text-3xl dark:text-slate-300 text-slate-800 kanit-regular">{{ $t('education') }}</h2>
         </div>
-        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">2019. Universidad Politécnica de Chiapas.</div>
-        <div class="color-primary mt-3">
+        <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3">2019. Universidad Politécnica de Chiapas.</div>
+        <div class="dark:text-slate-300 text-slate-800 mt-3">
             <p class="text-justify text-sm">{{ $t('education_description') }}</p>
         </div>
     </section>
     <section class="">
         <div class="flex justify-start pb-1 p-5 md:p-10">
-            <h2 class="text-3xl color-primary kanit-regular">{{ $t('experience') }}</h2>
+            <h2 class="text-3xl dark:text-slate-300 text-slate-800 kanit-regular">{{ $t('experience') }}</h2>
         </div>
         <div class="md:flex inline">
-            <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] bg-slate-900 md:pl-10 z-50">
+            <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] dark:bg-slate-900 bg-slate-100 md:pl-10 z-50">
                 <div class="md:inline flex justify-evenly gap-0">
                     <div
-                        class="md:m-2 text-xl hover:bg-slate-600 p-2 cursor-pointer md:w-[90%] w-full text-center"
-                        :class="[ vtimesProgress > 0 && vtimesProgress < 1 ? 'text-green-300 bg-slate-600' : 'text-green-600 bg-slate-800' ]"
+                        class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
+                        :class="[ vtimesProgress > 0 && vtimesProgress < 1 ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >{{ $t('current') }}</div>
                     <div 
-                        class="md:m-2 text-xl hover:bg-slate-600 p-2 cursor-pointer md:w-[90%] w-full text-center"
-                        :class="[ umProgress > 0 && umProgress < 1 ? 'text-green-300 bg-slate-600' : 'text-green-600 bg-slate-800' ]"
+                        class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
+                        :class="[ umProgress > 0 && umProgress < 1 ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >2020</div>
                     <div
-                        class="md:m-2 text-xl hover:bg-slate-600 p-2 cursor-pointer md:w-[90%] w-full text-center"
-                        :class="[ ichProgress > 0 && ichProgress < 1 ? 'text-green-300 bg-slate-600' : 'text-green-600 bg-slate-800' ]"
+                        class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
+                        :class="[ ichProgress > 0 && ichProgress < 1 ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >2019</div>
                 </div>
                 <div class="md:mx-2">
@@ -230,29 +231,29 @@
             <div class="md:w-[80%] w-full px-5 md:px-10">
                 <article ref="experience" class="">
                     <div ref="vtimes" class="experience">
-                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3 kanit-regular">01/2022 - {{ $t('current') }}. Vacation Times</div>
+                        <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">01/2022 - {{ $t('current') }}. Vacation Times</div>
                         <div class="p-2 rounded-lg">
-                            <div class="color-primary mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
+                            <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
                                 <span class="badge bg-green-800 text-green-200 shadow-md inline-flex" v-for="st in $tm('vtimes.stack')" :key="st">{{ getValueKeyFromString(st, TA) }}</span>
                             </div>
                         </div>
                         <span class="flex justify-end">
                             <a href="https://vacationstimes.com/es/home/" target="_blank" class="text-blue-500 text-sm">{{ $t('vtimes.url') }}</a>
                         </span>
-                        <div class="color-primary mt-3"> <!-- Experience container -->
-                            <p class="text-justify bg-slate-800 p-2 rounded-md">{{ $t('vtimes.description') }}</p>
+                        <div class="dark:text-slate-300 text-slate-800 mt-3"> <!-- Experience container -->
+                            <p class="text-justify dark:bg-slate-800 bg-slate-50 p-2 rounded-md">{{ $t('vtimes.description') }}</p>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_activities') }}</h2>
                             <ul class="list-disc list-inside text-sm">
                                 <li v-for="activity in $tm('vtimes.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
-                            <div class="flex bg-secondary p-3 my-2">
+                            <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
                                 <div class="w-[40%]">
                                     <a href="https://www.organiwork.com/" target="_blank" class="text-orange-300 font-bold">Organiwork</a>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('vtimes.organiwork_description') }}</div>
                             </div>
-                            <div class="flex bg-secondary p-3 my-2">
+                            <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
                                 <div class="w-[40%]">
                                     <a href="https://www.modern-restaurant.com/" target="_blank" class="text-blue-500 font-bold">Modern Restaurant</a>
                                 </div>
@@ -262,23 +263,23 @@
                     </div>
 
                     <div ref="um" class="experience">
-                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3 kanit-regular">09/2019 - 01/2022. Universidad Maya</div>
+                        <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">09/2019 - 01/2022. Universidad Maya</div>
                         <div class="p-2 rounded-lg">
-                            <div class="color-primary mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
+                            <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
                                 <span class="badge bg-green-800 text-green-200 shadow-md inline-flex" v-for="st in $tm('um.stack')" :key="st">{{ getValueKeyFromString(st, TA) }}</span>
                             </div>
                         </div>
                         <span class="flex justify-end">
                             <a href="https://www.universidadmaya.edu.mx/" target="_blank" class="text-blue-500 text-sm">{{ $t('um.url') }}</a>
                         </span>
-                        <div class="color-primary mt-3"> <!-- Experience container -->
-                            <p class="text-justify bg-slate-800 p-2 rounded-md">{{ $t('um.description') }}</p>
+                        <div class="dark:text-slate-300 text-slate-800 mt-3"> <!-- Experience container -->
+                            <p class="text-justify dark:bg-slate-800 bg-slate-50 p-2 rounded-md">{{ $t('um.description') }}</p>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_activities') }}</h2>
                             <ul class="list-disc list-inside text-sm">
                                 <li v-for="activity in $tm('um.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
-                            <div class="flex bg-secondary p-3 my-2">
+                            <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
                                 <div class="w-[40%]">
                                     <span class="text-blue-600 font-bold">SIUM Escolar</span>
                                 </div>
@@ -288,23 +289,23 @@
                     </div>
 
                     <div ref="ich" class="experience">
-                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3 kanit-regular">02/2019 - 09/2022. Red Laboral ICH</div>
+                        <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">02/2019 - 09/2022. Red Laboral ICH</div>
                         <div class="p-2 rounded-lg">
-                            <div class="color-primary mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
+                            <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
                                 <span class="badge bg-green-800 text-green-200 shadow-md inline-flex" v-for="st in $tm('ich.stack')" :key="st">{{ getValueKeyFromString(st, TA) }}</span>
                             </div>
                         </div>
                         <span class="flex justify-end">
                             <a href="https://redlaboralich.mx/" target="_blank" class="text-blue-500 text-sm">{{ $t('ich.url') }}</a>
                         </span>
-                        <div class="color-primary mt-3"> <!-- Experience container -->
-                            <p class="text-justify bg-slate-800 p-2 rounded-md">{{ $t('ich.description') }}</p>
+                        <div class="dark:text-slate-300 text-slate-800 mt-3"> <!-- Experience container -->
+                            <p class="text-justify dark:bg-slate-800 bg-slate-50 p-2 rounded-md">{{ $t('ich.description') }}</p>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_activities') }}</h2>
                             <ul class="list-disc list-inside text-sm">
                                 <li v-for="activity in $tm('ich.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
-                            <div class="flex bg-secondary p-3 my-2">
+                            <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
                                 <div class="w-[40%]">
                                     <span class="text-red-600 font-bold">RedICH App</span>
                                 </div>
@@ -316,7 +317,7 @@
             </div>
         </div>
     </section>
-    <footer class="color-primary py-3 md:text-sm text-xs px-5 md:px-10">
+    <footer class="dark:text-slate-300 text-slate-800 py-3 md:text-sm text-xs px-5 md:px-10">
         <hr class="w-full border-slate-600">
         <div class="flex mt-3 justify-evenly gap-2">
             <div class="flex flex-col gap-1">
@@ -331,7 +332,12 @@
             </div>
             <div class="flex flex-col gap-1">
                 <h1 class="mb-3 font-bold">{{ $t("language") }}</h1>
-                {{ $t("es") }}
+                <select class="dark:bg-slate-800 bg-white" v-model="$i18n.locale" id="locale" @change="preferences.setLocaleInStorage()">
+                    <option v-for="locale in $i18n.availableLocales" :value="locale">{{ locale }}</option>
+                </select>
+                <button class="dark:bg-slate-800 bg-white py-2 rounded-full" @click="preferences.toggleMode()">
+                    {{ preferences.theme === 'dark' ? "🌞" : "🌚" }}
+                </button>
             </div>
         </div>
         <div class="text-center text-xs mt-3">2024 {{ $t("copyrigth") }}</div>
