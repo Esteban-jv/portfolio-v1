@@ -194,7 +194,7 @@
         </div>
         <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">2019. Universidad Politécnica de Chiapas.</div>
         <div class="color-primary mt-3">
-            <p class="text-justify">{{ $t('education_description') }}</p>
+            <p class="text-justify text-sm">{{ $t('education_description') }}</p>
         </div>
     </section>
     <section class="">
@@ -207,7 +207,7 @@
             {{ ichProgress }}
         </div> -->
         <div class="md:flex inline">
-            <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] bg-slate-900 md:pl-10">
+            <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] bg-slate-900 md:pl-10 z-50">
                 <div class="md:inline flex justify-evenly gap-0">
                     <div
                         class="md:m-2 text-xl hover:bg-slate-600 p-2 cursor-pointer md:w-[90%] w-full text-center"
@@ -263,29 +263,56 @@
                     </div>
 
                     <div ref="um" class="experience">
-                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">09/2019 - 01/2022. Universidad Maya</div>
+                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3 kanit-regular">09/2019 - 01/2022. Universidad Maya</div>
+                        <div class="p-2 rounded-lg">
+                            <div class="color-primary mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
+                                <span class="badge bg-green-800 text-green-200 shadow-md inline-flex" v-for="st in $tm('um.stack')" :key="st">{{ getValueKeyFromString(st, TA) }}</span>
+                            </div>
+                        </div>
+                        <span class="flex justify-end">
+                            <a href="https://www.universidadmaya.edu.mx/" target="_blank" class="text-blue-500 text-sm">{{ $t('um.url') }}</a>
+                        </span>
                         <div class="color-primary mt-3"> <!-- Experience container -->
-                            <p class="text-justify">{{ $t('um.description') }}</p>
-                            <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
-                            <ul class="list-disc list-inside">
+                            <p class="text-justify bg-slate-800 p-2 rounded-md">{{ $t('um.description') }}</p>
+                            <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_activities') }}</h2>
+                            <ul class="list-disc list-inside text-sm">
                                 <li v-for="activity in $tm('um.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
+                            <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
+                            <div class="flex bg-secondary p-3 my-2">
+                                <div class="w-[40%]">
+                                    <span class="text-blue-600 font-bold">SIUM Escolar</span>
+                                </div>
+                                <div class="w-[60%] text-sm">{{ $t('um.sium_description') }}</div>
+                            </div>
                         </div>
                     </div>
 
                     <div ref="ich" class="experience">
-                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3">02/2019 - 09/2022. Red Laboral ICH</div>
+                        <div class="text-xl color-primary border-l-green-300 border-l-[2px] p-3 kanit-regular">02/2019 - 09/2022. Red Laboral ICH</div>
+                        <div class="p-2 rounded-lg">
+                            <div class="color-primary mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
+                                <span class="badge bg-green-800 text-green-200 shadow-md inline-flex" v-for="st in $tm('ich.stack')" :key="st">{{ getValueKeyFromString(st, TA) }}</span>
+                            </div>
+                        </div>
+                        <span class="flex justify-end">
+                            <a href="https://redlaboralich.mx/" target="_blank" class="text-blue-500 text-sm">{{ $t('ich.url') }}</a>
+                        </span>
                         <div class="color-primary mt-3"> <!-- Experience container -->
-                            <p class="text-justify">{{ $t('ich.description') }}</p>
-                            <p class="text-justify w-80">{{ $t('ich.description') }}</p>
-                            <h2 class="text-xl mt-2">{{ $t('main_activities') }}</h2>
-                            <ul class="list-disc list-inside">
+                            <p class="text-justify bg-slate-800 p-2 rounded-md">{{ $t('ich.description') }}</p>
+                            <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_activities') }}</h2>
+                            <ul class="list-disc list-inside text-sm">
                                 <li v-for="activity in $tm('ich.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
+                            <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
+                            <div class="flex bg-secondary p-3 my-2">
+                                <div class="w-[40%]">
+                                    <span class="text-red-600 font-bold">RedICH App</span>
+                                </div>
+                                <div class="w-[60%] text-sm">{{ $t('ich.redich_description') }}</div>
+                            </div>
                         </div>
                     </div>
-
-                    
                 </article>
             </div>
         </div>

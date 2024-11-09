@@ -34,19 +34,33 @@
         "modern_restaurant_description": "Restaurant management POS system, real-time orders and inventory management",
     },
     "um": {
+        "url": "www.universidadmaya.com.edu",
+        "stack": [
+            "PHP", "Laravel", "CSS", "Javascript", "Material Design", "Angular", "PostgreSQL"
+        ],
         "description": "In this job I had the oportinity of working in the studens inscription process and updating of data.",
         "activities": [
             "Requierement survey",
             "Development of web applications.",
-        ]
+            "Stored procedures creation.",
+            "Systems administration with webscrapping.",
+            "Ubuntu server deployment.",
+            "Project leader."
+        ],
+        "sium_description": "Student information system for the administration of students, grades, teachers and subjects."
     },
     "ich": {
+        "url": "redlaboralich.mx",
+        "stack": [
+            "AngularJS", "IONIC", "HTML", "CSS", "Javascript"
+        ],
         "description": "In this enterprise I worked in a big team of software development. My main roll was design and develop graphic interfaces  \
             for web application and mobile apps in AngularJS and IONIC.",
         "activities": [
             "Scrum methodology.",
             "Testing web and mobile apps.",
             "Design and development of graphic interfaces.",
-        ]
+        ],
+        "redich_description": "Job board for the administration of job offers, resumes and job applications."
     }
 }
