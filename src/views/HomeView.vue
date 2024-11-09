@@ -43,9 +43,6 @@
         } else {
             TA.value = 'loc.source'
         }
-        // console.log(TA.value)
-        // console.log(tm('vtimes.activities'))
-        // console.log(getValueKeyFromString(tm('vtimes.activities')[0], TA.value))
         
 
         const draw = (progress) => ({
@@ -105,6 +102,9 @@
             { delay: 4.6 }
         )
         await timeline([
+            ["img", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 4.6, delay: stagger(0.05) }],
+        ])
+        await timeline([
             ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 4.6, delay: stagger(0.05) }],
         ])
         await timeline([
@@ -161,6 +161,14 @@
     <div class="px-5 md:px-10 py-3">
         <h1 class="dark:text-slate-300 text-slate-800 text-3xl md:text-5xl kanit-regular">José Esteban Juárez Velázquez</h1>
         <h1 class="text-slate-500 text-2xl md:text-3xl mt-1 kanit-regular"> {{ $t('web_developer') }}</h1>
+        <div class="flex gap-2 justify-end">
+            <a :href="$i18n.locale === 'es' ? 'https://wa.link/jtrqg6' : 'https://wa.link/7cq2xb'" target="_blank">
+                <img src="/Whatsapp.svg" alt="" class="w-10 h-10">
+            </a>
+            <a href="https://github.com/Esteban-jv" target="_blank">
+                <img src="/Github.svg" alt="" class="w-10 h-10">
+            </a>            
+        </div>
     </div>
     <section class="p-5 md:px-10">
         <div class="md:flex inline">
