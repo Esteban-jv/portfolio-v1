@@ -2,10 +2,10 @@
     import { onMounted, ref, inject } from 'vue'
     import { timeline, stagger, animate, scroll } from "motion"
     import { useI18n } from 'vue-i18n'
-    import { usePreferences } from '../stores/usePreferences';
+    import Header from '../components/Header.vue';
+    import Footer from '../components/Footer.vue';
 
     const { tm } = useI18n()
-    const preferences = usePreferences()
 
     const TA = ref('') // Translate Access
 
@@ -102,7 +102,7 @@
             { delay: 4.6 }
         )
         await timeline([
-            ["img", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 4.6, delay: stagger(0.05) }],
+            ["img", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 4.6, delay: stagger(0.01) }],
         ])
         await timeline([
             ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 4.6, delay: stagger(0.05) }],
@@ -158,18 +158,7 @@
             <path ref="shapeInisde" d="M 28 38 L 28 61 L 50 71 L 72 61 L 72 38 L 50 28 Z" pathLength="1"></path>
         </svg>
     </div>
-    <div class="px-5 md:px-10 py-3">
-        <h1 class="dark:text-slate-300 text-slate-800 text-3xl md:text-5xl kanit-regular">José Esteban Juárez Velázquez</h1>
-        <h1 class="text-slate-500 text-2xl md:text-3xl mt-1 kanit-regular"> {{ $t('web_developer') }}</h1>
-        <div class="flex gap-2 justify-end">
-            <a :href="$i18n.locale === 'es' ? 'https://wa.link/jtrqg6' : 'https://wa.link/7cq2xb'" target="_blank">
-                <img src="/Whatsapp.svg" alt="" class="w-10 h-10">
-            </a>
-            <a href="https://github.com/Esteban-jv" target="_blank">
-                <img src="/Github.svg" alt="" class="w-10 h-10">
-            </a>            
-        </div>
-    </div>
+    <Header />
     <section class="p-5 md:px-10">
         <div class="md:flex inline">
             <div class="md:w-[60%] w-full">
@@ -198,8 +187,6 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section class="px-5 md:px-10">
     </section>
     <section class="p-5 md:p-10">
         <div class="flex justify-start pb-1">
@@ -325,31 +312,7 @@
             </div>
         </div>
     </section>
-    <footer class="dark:text-slate-300 text-slate-800 py-3 md:text-sm text-xs px-5 md:px-10">
-        <hr class="w-full border-slate-600">
-        <div class="flex mt-3 justify-evenly gap-2">
-            <div class="flex flex-col gap-1">
-                <h1 class="mb-3 font-bold">{{ $t("contact") }}</h1>
-                <p>+52 1 (961)186 5593</p>
-                <p>ejv.developer@gmail.com</p>
-            </div>
-            <div class="flex flex-col gap-1">
-                <h1 class="mb-3 font-bold">{{ $t("location") }}</h1>
-                <p>Playa del carmen</p>
-                <p>Quintana Roo, México</p>
-            </div>
-            <div class="flex flex-col gap-1">
-                <h1 class="mb-3 font-bold">{{ $t("language") }}</h1>
-                <select class="dark:bg-slate-800 bg-white" v-model="$i18n.locale" id="locale" @change="preferences.setLocaleInStorage()">
-                    <option v-for="locale in $i18n.availableLocales" :value="locale">{{ locale }}</option>
-                </select>
-                <button class="dark:bg-slate-800 bg-white py-2 rounded-full" @click="preferences.toggleMode()">
-                    {{ preferences.theme === 'dark' ? "🌞" : "🌚" }}
-                </button>
-            </div>
-        </div>
-        <div class="text-center text-xs mt-3">2024 {{ $t("copyrigth") }}</div>
-    </footer>
+    <Footer />
 </template>
 <style>
     #logo-loader {
