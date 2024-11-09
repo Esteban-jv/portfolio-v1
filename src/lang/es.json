@@ -63,5 +63,9 @@
             "Diseño de interfaces gráficas.",
         ],
         "redich_description": "Bolsa de trabajo para la administración de ofertas de empleo, curriculums y solicitudes de empleo."
-    }
+    },
+    "copyrigth": "Todos los derechos reservados",
+    "contact": "Contacto",
+    "language": "Idioma",
+    "location": "Ubicación",
 }

@@ -62,5 +62,9 @@
             "Design and development of graphic interfaces.",
         ],
         "redich_description": "Job board for the administration of job offers, resumes and job applications."
-    }
+    },
+    "copyrigth": "All rights reserved",
+    "contact": "Contact",
+    "language": "Language",
+    "location": "Location",
 }

@@ -2,6 +2,7 @@
     import { onMounted, ref, inject } from 'vue'
     import { timeline, stagger, animate, scroll } from "motion"
     import { useI18n } from 'vue-i18n'
+    import { usePreferences } from '../stores/usePreferences';
 
     const { tm } = useI18n()
 
@@ -105,6 +106,9 @@
         await timeline([
             ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 4.6, delay: stagger(0.05) }],
         ])
+        await timeline([
+            ["footer", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 5, delay: stagger(0.05) }],
+        ])
 
         scroll((info) => {
                 vtimesProgress.value = info.y.progress
@@ -201,11 +205,6 @@
         <div class="flex justify-start pb-1 p-5 md:p-10">
             <h2 class="text-3xl color-primary kanit-regular">{{ $t('experience') }}</h2>
         </div>
-        <!-- <div class="text-green-500 m-2 text-sm cursor-pointer">
-            {{ vtimesProgress }}
-            {{ umProgress }}
-            {{ ichProgress }}
-        </div> -->
         <div class="md:flex inline">
             <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] bg-slate-900 md:pl-10 z-50">
                 <div class="md:inline flex justify-evenly gap-0">
@@ -249,13 +248,13 @@
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
                             <div class="flex bg-secondary p-3 my-2">
                                 <div class="w-[40%]">
-                                    <a href="https://www.organiwork.com/" class="text-orange-300 font-bold">Organiwork</a>
+                                    <a href="https://www.organiwork.com/" target="_blank" class="text-orange-300 font-bold">Organiwork</a>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('vtimes.organiwork_description') }}</div>
                             </div>
                             <div class="flex bg-secondary p-3 my-2">
                                 <div class="w-[40%]">
-                                    <a href="https://www.modern-restaurant.com/" class="text-blue-500 font-bold">Modern Restaurant</a>
+                                    <a href="https://www.modern-restaurant.com/" target="_blank" class="text-blue-500 font-bold">Modern Restaurant</a>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('vtimes.modern_restaurant_description') }}</div>
                             </div>
@@ -317,6 +316,26 @@
             </div>
         </div>
     </section>
+    <footer class="color-primary py-3 md:text-sm text-xs px-5 md:px-10">
+        <hr class="w-full border-slate-600">
+        <div class="flex mt-3 justify-evenly gap-2">
+            <div class="flex flex-col gap-1">
+                <h1 class="mb-3 font-bold">{{ $t("contact") }}</h1>
+                <p>+52 1 (961)186 5593</p>
+                <p>ejv.developer@gmail.com</p>
+            </div>
+            <div class="flex flex-col gap-1">
+                <h1 class="mb-3 font-bold">{{ $t("location") }}</h1>
+                <p>Playa del carmen</p>
+                <p>Quintana Roo, México</p>
+            </div>
+            <div class="flex flex-col gap-1">
+                <h1 class="mb-3 font-bold">{{ $t("language") }}</h1>
+                {{ $t("es") }}
+            </div>
+        </div>
+        <div class="text-center text-xs mt-3">2024 {{ $t("copyrigth") }}</div>
+    </footer>
 </template>
 <style>
     #logo-loader {
