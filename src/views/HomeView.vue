@@ -233,7 +233,10 @@
                             </div>
                         </div>
                         <span class="flex justify-end">
-                            <a href="https://vacationstimes.com/es/home/" target="_blank" class="text-blue-500 text-sm">{{ $t('vtimes.url') }}</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
+                                <path class="fill-blue-500 stroke-transparent" d="M17.74 2.76a4.32 4.32 0 0 1 0 6.1l-1.53 1.52c-1.12 1.12-2.7 1.47-4.14 1.09l2.62-2.61l.76-.77l.76-.76c.84-.84.84-2.2 0-3.04a2.13 2.13 0 0 0-3.04 0l-.77.76l-3.38 3.38c-.37-1.44-.02-3.02 1.1-4.14l1.52-1.53a4.32 4.32 0 0 1 6.1 0M8.59 13.43l5.34-5.34c.42-.42.42-1.1 0-1.52c-.44-.43-1.13-.39-1.53 0l-5.33 5.34c-.42.42-.42 1.1 0 1.52c.44.43 1.13.39 1.52 0m-.76 2.29l4.14-4.15c.38 1.44.03 3.02-1.09 4.14l-1.52 1.53a4.32 4.32 0 0 1-6.1 0a4.32 4.32 0 0 1 0-6.1l1.53-1.52c1.12-1.12 2.7-1.47 4.14-1.1l-4.14 4.15c-.85.84-.85 2.2 0 3.05c.84.84 2.2.84 3.04 0"/>
+                            </svg>
+                            <a href="https://vacationstimes.com/es/home/" target="_blank" class="text-blue-500 text-sm underline">{{ $t('vtimes.url') }}</a>
                         </span>
                         <div class="dark:text-slate-300 text-slate-800 mt-3"> <!-- Experience container -->
                             <p class="text-justify dark:bg-slate-800 bg-slate-50 p-2 rounded-md">{{ $t('vtimes.description') }}</p>
@@ -243,14 +246,20 @@
                             </ul>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
                             <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
-                                <div class="w-[40%]">
-                                    <a href="https://www.organiwork.com/" target="_blank" class="text-orange-300 font-bold">Organiwork</a>
+                                <div class="w-[40%] flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
+                                        <path class="fill-orange-300 stroke-transparent" d="M17.74 2.76a4.32 4.32 0 0 1 0 6.1l-1.53 1.52c-1.12 1.12-2.7 1.47-4.14 1.09l2.62-2.61l.76-.77l.76-.76c.84-.84.84-2.2 0-3.04a2.13 2.13 0 0 0-3.04 0l-.77.76l-3.38 3.38c-.37-1.44-.02-3.02 1.1-4.14l1.52-1.53a4.32 4.32 0 0 1 6.1 0M8.59 13.43l5.34-5.34c.42-.42.42-1.1 0-1.52c-.44-.43-1.13-.39-1.53 0l-5.33 5.34c-.42.42-.42 1.1 0 1.52c.44.43 1.13.39 1.52 0m-.76 2.29l4.14-4.15c.38 1.44.03 3.02-1.09 4.14l-1.52 1.53a4.32 4.32 0 0 1-6.1 0a4.32 4.32 0 0 1 0-6.1l1.53-1.52c1.12-1.12 2.7-1.47 4.14-1.1l-4.14 4.15c-.85.84-.85 2.2 0 3.05c.84.84 2.2.84 3.04 0"/>
+                                    </svg>
+                                    <a href="https://www.organiwork.com/" target="_blank" class="text-orange-300 font-bold underline">Organiwork</a>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('vtimes.organiwork_description') }}</div>
                             </div>
                             <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
-                                <div class="w-[40%]">
-                                    <a href="https://www.modern-restaurant.com/" target="_blank" class="text-blue-500 font-bold">Modern Restaurant</a>
+                                <div class="w-[40%] flex">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
+                                        <path class="fill-blue-500 stroke-transparent" d="M17.74 2.76a4.32 4.32 0 0 1 0 6.1l-1.53 1.52c-1.12 1.12-2.7 1.47-4.14 1.09l2.62-2.61l.76-.77l.76-.76c.84-.84.84-2.2 0-3.04a2.13 2.13 0 0 0-3.04 0l-.77.76l-3.38 3.38c-.37-1.44-.02-3.02 1.1-4.14l1.52-1.53a4.32 4.32 0 0 1 6.1 0M8.59 13.43l5.34-5.34c.42-.42.42-1.1 0-1.52c-.44-.43-1.13-.39-1.53 0l-5.33 5.34c-.42.42-.42 1.1 0 1.52c.44.43 1.13.39 1.52 0m-.76 2.29l4.14-4.15c.38 1.44.03 3.02-1.09 4.14l-1.52 1.53a4.32 4.32 0 0 1-6.1 0a4.32 4.32 0 0 1 0-6.1l1.53-1.52c1.12-1.12 2.7-1.47 4.14-1.1l-4.14 4.15c-.85.84-.85 2.2 0 3.05c.84.84 2.2.84 3.04 0"/>
+                                    </svg>
+                                    <a href="https://www.modern-restaurant.com/" target="_blank" class="text-blue-500 font-bold underline">Modern Restaurant</a>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('vtimes.modern_restaurant_description') }}</div>
                             </div>
@@ -265,7 +274,10 @@
                             </div>
                         </div>
                         <span class="flex justify-end">
-                            <a href="https://www.universidadmaya.edu.mx/" target="_blank" class="text-blue-500 text-sm">{{ $t('um.url') }}</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
+                                <path class="fill-blue-500 stroke-transparent" d="M17.74 2.76a4.32 4.32 0 0 1 0 6.1l-1.53 1.52c-1.12 1.12-2.7 1.47-4.14 1.09l2.62-2.61l.76-.77l.76-.76c.84-.84.84-2.2 0-3.04a2.13 2.13 0 0 0-3.04 0l-.77.76l-3.38 3.38c-.37-1.44-.02-3.02 1.1-4.14l1.52-1.53a4.32 4.32 0 0 1 6.1 0M8.59 13.43l5.34-5.34c.42-.42.42-1.1 0-1.52c-.44-.43-1.13-.39-1.53 0l-5.33 5.34c-.42.42-.42 1.1 0 1.52c.44.43 1.13.39 1.52 0m-.76 2.29l4.14-4.15c.38 1.44.03 3.02-1.09 4.14l-1.52 1.53a4.32 4.32 0 0 1-6.1 0a4.32 4.32 0 0 1 0-6.1l1.53-1.52c1.12-1.12 2.7-1.47 4.14-1.1l-4.14 4.15c-.85.84-.85 2.2 0 3.05c.84.84 2.2.84 3.04 0"/>
+                            </svg>
+                            <a href="https://www.universidadmaya.edu.mx/" target="_blank" class="text-blue-500 text-sm underline">{{ $t('um.url') }}</a>
                         </span>
                         <div class="dark:text-slate-300 text-slate-800 mt-3"> <!-- Experience container -->
                             <p class="text-justify dark:bg-slate-800 bg-slate-50 p-2 rounded-md">{{ $t('um.description') }}</p>
@@ -291,7 +303,10 @@
                             </div>
                         </div>
                         <span class="flex justify-end">
-                            <a href="https://redlaboralich.mx/" target="_blank" class="text-blue-500 text-sm">{{ $t('ich.url') }}</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
+                                <path class="fill-blue-500 stroke-transparent" d="M17.74 2.76a4.32 4.32 0 0 1 0 6.1l-1.53 1.52c-1.12 1.12-2.7 1.47-4.14 1.09l2.62-2.61l.76-.77l.76-.76c.84-.84.84-2.2 0-3.04a2.13 2.13 0 0 0-3.04 0l-.77.76l-3.38 3.38c-.37-1.44-.02-3.02 1.1-4.14l1.52-1.53a4.32 4.32 0 0 1 6.1 0M8.59 13.43l5.34-5.34c.42-.42.42-1.1 0-1.52c-.44-.43-1.13-.39-1.53 0l-5.33 5.34c-.42.42-.42 1.1 0 1.52c.44.43 1.13.39 1.52 0m-.76 2.29l4.14-4.15c.38 1.44.03 3.02-1.09 4.14l-1.52 1.53a4.32 4.32 0 0 1-6.1 0a4.32 4.32 0 0 1 0-6.1l1.53-1.52c1.12-1.12 2.7-1.47 4.14-1.1l-4.14 4.15c-.85.84-.85 2.2 0 3.05c.84.84 2.2.84 3.04 0"/>
+                            </svg>
+                            <a href="https://redlaboralich.mx/" target="_blank" class="text-blue-500 text-sm underline">{{ $t('ich.url') }}</a>
                         </span>
                         <div class="dark:text-slate-300 text-slate-800 mt-3"> <!-- Experience container -->
                             <p class="text-justify dark:bg-slate-800 bg-slate-50 p-2 rounded-md">{{ $t('ich.description') }}</p>
