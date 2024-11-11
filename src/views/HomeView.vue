@@ -168,6 +168,17 @@
                             <img class="h-full w-full rounded-full" src="/Profile.jpg" alt="" />
                         </div>
                     </div>
+                    <div class="flex md:flex-col gap-2 justify-evenly items-center bg-sky-900 rounded-md mt-3 md:mt-0 md:ml-3 p-1">
+                        <a href="https://www.linkedin.com/in/jos%C3%A9-esteban-juarez-velazquez-68b511293/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_verification_details%3BQD5xzlHVQNSK5buTioxGGA%3D%3D" target="_blank">
+                            <img src="/Linkedin.svg" alt="" class="w-8 h-8">
+                        </a>
+                        <a :href="$i18n.locale === 'es' ? 'https://wa.link/jtrqg6' : 'https://wa.link/7cq2xb'" target="_blank">
+                            <img src="/Whatsapp.svg" alt="" class="w-10 h-10">
+                        </a>
+                        <a href="https://github.com/Esteban-jv" target="_blank">
+                            <img src="/Github.svg" alt="" class="w-10 h-10">
+                        </a>            
+                    </div>
                     <div class="w-50 self-center">
                         <div class="dark:text-slate-300 text-slate-800 md:mx-3 mx-0 my-3 md:my-0 dark:bg-slate-800 bg-white p-3 rounded-lg max-w-[600px]">
                             <h2 class="text-2xl md:text-3xl kanit-regular">{{ $t('about_me') }}</h2>
