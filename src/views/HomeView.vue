@@ -1,11 +1,8 @@
 <script setup>
     import { onMounted, ref, inject } from 'vue'
     import { timeline, stagger, animate, scroll } from "motion"
-    import { useI18n } from 'vue-i18n'
     import Header from '../components/Header.vue';
     import Footer from '../components/Footer.vue';
-
-    const { tm } = useI18n()
 
     const TA = ref('') // Translate Access
 
@@ -36,7 +33,11 @@
         'SVN', 'PostgreSQL', 'MMSQL', 'Python', 'DJango', 'DRF', 'Bootstrap', 'Rest'
     ])
 
-    onMounted(async () => {
+    onMounted(() => {
+        document.body.style.overflow = 'hidden'
+        setTimeout(() => {
+            document.body.style.overflow = 'auto'
+        }, 2800)
         // console.warn(import.meta.env.VITE_APP_MODE)
         if(import.meta.env.VITE_APP_MODE === 'production') {
             TA.value = 'b.s'
@@ -55,60 +56,39 @@
             visibility: "visible",
         });
 
-        const erase = (progress) => ({
-            // This property makes the line "draw" in when animated
-            strokeDashoffset: progress - 1,
-
-            // Each line will be hidden until it starts drawing
-            // to fix a bug in Safari where the line can be
-            // partially visible even when progress is at 0
-            visibility: "visible",
-        });
-
-        await timeline([
-            [verticalLineE1.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
-            [verticalLineE2.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
-            [verticalLineE3.value, draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
-            [horizontalE.value, draw(1), { duration: 0.2, at: 0.4, delay: stagger(0.2) }],
-
-            [verticalJ.value, draw(1), { duration: 0.2, at: 0.6, delay: stagger(0.2) }],
-            [horizontalJ.value, draw(1), { duration: 0.2, at: 0.6, delay: stagger(0.2) }],
-            [horizontalJ2.value, draw(1), { duration: 0.2, at: 0.6, delay: stagger(0.2) }],
-
-            // ['circle', draw(1), { duration: 0.1, at: 0.7, delay: stagger(0.1, { start: 0.7}) }],
+        timeline([
+            [".logo", draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
 
             [shapeOutside.value, draw(1), { duration: 0.6, at: 0.8, delay: stagger(0.1) }],
             [shapeInisde.value, draw(1), { duration: 0.6, at: 0.9, delay: stagger(0.1) }],
-        ])
+        ],
+        { direction: "alternate", repeat: 1, duration: 1.4 }
+        )
 
-        // now we erase shapeOutise and Inside
-        await setTimeout(async() => {
-            await timeline([
-                [shapeOutside.value, erase(0), { duration: 0.8, at: 1.4, delay: stagger(1.5) }],
-                [shapeInisde.value, erase(0), { duration: 0.8, at: 1.4, delay: stagger(1.5) }],
+        animate(
+            ".logo",
+            { opacity: [1,0] },
+            { delay: 2.5 }
+        )
 
-                ["path", erase(0), { duration: 0.1, at: 2.2, delay: stagger(0.1) }],
-            ])
-        }, 1400)
-
-        await animate(
+        animate(
             "h1",
             { y: [0,12], opacity: [0,1] },
-            { delay: 4.5 }
+            { delay: 2.8 }
         )
-        await animate(
+        animate(
             "section",
             { y: [0,12], opacity: [0,1] },
-            { delay: 4.6 }
+            { delay: 2.9 }
         )
-        await timeline([
-            ["img", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 4.6, delay: stagger(0.01) }],
+        timeline([
+            [".smoothimg", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 3, delay: stagger(0.1) }],
         ])
-        await timeline([
-            ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 4.6, delay: stagger(0.05) }],
+        timeline([
+            ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 3.1, delay: stagger(0.05) }],
         ])
-        await timeline([
-            ["footer", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 5, delay: stagger(0.05) }],
+        timeline([
+            ["footer", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 3.2, delay: stagger(0.05) }],
         ])
 
         scroll((info) => {
@@ -137,25 +117,25 @@
 <template>
     <div id="logo-loader">
         <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-            <path ref="verticalLineE1" d="M 6 27 l46 22.5 Z" pathLength="1" />
-            <path ref="verticalLineE2" d="M 6 48 l23 13 Z" pathLength="1"/>
-            <path ref="verticalLineE3" d="M 6 72 l40 24 Z" pathLength="1"/>
-            <path ref="horizontalE" d="M 6 27 l 0 45 Z" pathLength="1"/>
+            <path class="logo" ref="verticalLineE1" d="M 6 27 l46 22.5 Z" pathLength="1" />
+            <path class="logo" ref="verticalLineE2" d="M 6 48 l23 13 Z" pathLength="1"/>
+            <path class="logo" ref="verticalLineE3" d="M 6 72 l40 24 Z" pathLength="1"/>
+            <path class="logo" ref="horizontalE" d="M 6 27 l 0 45 Z" pathLength="1"/>
 
-            <path ref="verticalJ" d="M 94 72 l -41 24 Z" pathLength="1"/>
-            <path ref="horizontalJ" d="M 94 72 l 0 -45 Z" pathLength="1"/>
-            <path ref="horizontalJ2" d="M94 27 l -21 12.5" pathLength="1"/>
-            <circle id="pointA" cx="50" cy="49" r="4" pathLength="1" fill="#005900"/>
-            <circle id="pointB" cx="7" cy="27" r="4" fill="#005900" pathLength="1"/>
-            <circle id="pointC" cx="7" cy="48" r="4" fill="#005900" pathLength="1"/>
-            <circle id="pointD" cx="7" cy="72" r="4" fill="#005900" pathLength="1"/>
-            <circle id="pointE" cx="49" cy="96" r="4" fill="#005900" pathLength="1"/>
+            <path class="logo" ref="verticalJ" d="M 94 72 l -41 24 Z" pathLength="1"/>
+            <path class="logo" ref="horizontalJ" d="M 94 72 l 0 -45 Z" pathLength="1"/>
+            <path class="logo" ref="horizontalJ2" d="M94 27 l -21 12.5" pathLength="1"/>
+            <!-- <circle class="logo" id="pointA" cx="50" cy="49" r="4" pathLength="1" fill="#005900"/>
+            <circle class="logo" id="pointB" cx="7" cy="27" r="4" fill="#005900" pathLength="1"/>
+            <circle class="logo" id="pointC" cx="7" cy="48" r="4" fill="#005900" pathLength="1"/>
+            <circle class="logo" id="pointD" cx="7" cy="72" r="4" fill="#005900" pathLength="1"/>
+            <circle class="logo" id="pointE" cx="49" cy="96" r="4" fill="#005900" pathLength="1"/> -->
 
-            <circle id="pointF" cx="94" cy="72" r="4" fill="#005900"/>
-            <circle id="pointG" cx="94" cy="27" r="4" fill="#005900"/>
+            <!-- <circle class="logo" id="pointF" cx="94" cy="72" r="4" fill="#005900"/>
+            <circle class="logo" id="pointG" cx="94" cy="27" r="4" fill="#005900"/> -->
 
-            <path ref="shapeOutside" d="M 6 27 L 6 72 L 50 98 L 94 72 L 94 27 L 50 6 Z" pathLength="1"></path>
-            <path ref="shapeInisde" d="M 28 38 L 28 61 L 50 71 L 72 61 L 72 38 L 50 28 Z" pathLength="1"></path>
+            <path class="logo" ref="shapeOutside" d="M 6 27 L 6 72 L 50 98 L 94 72 L 94 27 L 50 6 Z" pathLength="1"></path>
+            <path class="logo" ref="shapeInisde" d="M 28 38 L 28 61 L 50 71 L 72 61 L 72 38 L 50 28 Z" pathLength="1"></path>
         </svg>
     </div>
     <Header />
@@ -163,24 +143,24 @@
         <div class="md:flex inline">
             <div class="md:w-[60%] w-full">
                 <div class="md:flex inline">
-                    <div class="w-50 flex justify-center">
+                    <div class="w-50 flex justify-center self-center">
                         <div class="h-40 w-40 items-center justify-center rounded-full border-[4px] border-green-300 bg-white">
                             <img class="h-full w-full rounded-full" src="/Profile.jpg" alt="" />
                         </div>
                     </div>
-                    <div class="flex md:flex-col gap-2 justify-evenly items-center bg-sky-900 rounded-md mt-3 md:mt-0 md:ml-3 p-1">
+                    <div class="flex md:flex-col min-w-[2rem] gap-2 justify-evenly items-center box-shadow-hover hover:bg-white border-sky-500 border-2 transition duration-500 shadow-md rounded-md mt-3 md:mt-0 md:ml-3 p-1">
                         <a href="https://www.linkedin.com/in/jos%C3%A9-esteban-juarez-velazquez-68b511293/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_verification_details%3BQD5xzlHVQNSK5buTioxGGA%3D%3D" target="_blank">
-                            <img src="/Linkedin.svg" alt="" class="w-8 h-8">
+                            <img src="/Linkedin.svg" alt="" class="w-5 h-5 smoothimg hover:h-7 hover:w-7 transition-all duration-300">
                         </a>
                         <a :href="$i18n.locale === 'es' ? 'https://wa.link/jtrqg6' : 'https://wa.link/7cq2xb'" target="_blank">
-                            <img src="/Whatsapp.svg" alt="" class="w-10 h-10">
+                            <img src="/Whatsapp.svg" alt="" class="w-6 h-6 smoothimg hover:h-8 hover:w-8 transition-all duration-300">
                         </a>
                         <a href="https://github.com/Esteban-jv" target="_blank">
-                            <img src="/Github.svg" alt="" class="w-10 h-10">
+                            <img src="/Github.svg" alt="" class="w-6 h-6 smoothimg hover:h-8 hover:w-8 transition-all duration-300">
                         </a>            
                     </div>
                     <div class="w-50 self-center">
-                        <div class="dark:text-slate-300 text-slate-800 md:mx-3 mx-0 my-3 md:my-0 dark:bg-slate-800 bg-white p-3 rounded-lg max-w-[600px]">
+                        <div class="dark:text-slate-300 text-slate-800 md:mx-3 mx-0 my-3 md:my-0 dark:bg-slate-800 bg-white p-3 rounded-lg md:max-w-[600px]">
                             <h2 class="text-2xl md:text-3xl kanit-regular">{{ $t('about_me') }}</h2>
                             <p class="mt-3 text-justify">{{ $t('about_me_description') }}</p>
                         </div>
@@ -244,10 +224,11 @@
                             </div>
                         </div>
                         <span class="flex justify-end">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
-                                <path class="fill-blue-500 stroke-transparent" d="M17.74 2.76a4.32 4.32 0 0 1 0 6.1l-1.53 1.52c-1.12 1.12-2.7 1.47-4.14 1.09l2.62-2.61l.76-.77l.76-.76c.84-.84.84-2.2 0-3.04a2.13 2.13 0 0 0-3.04 0l-.77.76l-3.38 3.38c-.37-1.44-.02-3.02 1.1-4.14l1.52-1.53a4.32 4.32 0 0 1 6.1 0M8.59 13.43l5.34-5.34c.42-.42.42-1.1 0-1.52c-.44-.43-1.13-.39-1.53 0l-5.33 5.34c-.42.42-.42 1.1 0 1.52c.44.43 1.13.39 1.52 0m-.76 2.29l4.14-4.15c.38 1.44.03 3.02-1.09 4.14l-1.52 1.53a4.32 4.32 0 0 1-6.1 0a4.32 4.32 0 0 1 0-6.1l1.53-1.52c1.12-1.12 2.7-1.47 4.14-1.1l-4.14 4.15c-.85.84-.85 2.2 0 3.05c.84.84 2.2.84 3.04 0"/>
-                            </svg>
                             <a href="https://vacationstimes.com/es/home/" target="_blank" class="text-blue-500 text-sm underline">{{ $t('vtimes.url') }}</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
+                                <path class=" stroke-none visible fill-sky-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                <path class="fill-sky-500 stroke-none visible" d="M7.086 9.975a.75.75 0 0 1-1.06 0 3.5 3.5 0 0 1 0-4.95l2-2a3.5 3.5 0 0 1 5.396 4.402.75.75 0 0 1-1.251-.827 2 2 0 0 0-3.085-2.514l-2 2a2 2 0 0 0 0 2.828.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+                            </svg>
                         </span>
                         <div class="dark:text-slate-300 text-slate-800 mt-3"> <!-- Experience container -->
                             <p class="text-justify dark:bg-slate-800 bg-slate-50 p-2 rounded-md">{{ $t('vtimes.description') }}</p>
@@ -258,19 +239,21 @@
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
                             <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
                                 <div class="w-[40%] flex">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
-                                        <path class="fill-orange-300 stroke-transparent" d="M17.74 2.76a4.32 4.32 0 0 1 0 6.1l-1.53 1.52c-1.12 1.12-2.7 1.47-4.14 1.09l2.62-2.61l.76-.77l.76-.76c.84-.84.84-2.2 0-3.04a2.13 2.13 0 0 0-3.04 0l-.77.76l-3.38 3.38c-.37-1.44-.02-3.02 1.1-4.14l1.52-1.53a4.32 4.32 0 0 1 6.1 0M8.59 13.43l5.34-5.34c.42-.42.42-1.1 0-1.52c-.44-.43-1.13-.39-1.53 0l-5.33 5.34c-.42.42-.42 1.1 0 1.52c.44.43 1.13.39 1.52 0m-.76 2.29l4.14-4.15c.38 1.44.03 3.02-1.09 4.14l-1.52 1.53a4.32 4.32 0 0 1-6.1 0a4.32 4.32 0 0 1 0-6.1l1.53-1.52c1.12-1.12 2.7-1.47 4.14-1.1l-4.14 4.15c-.85.84-.85 2.2 0 3.05c.84.84 2.2.84 3.04 0"/>
+                                    <a href="https://www.organiwork.com/" target="_blank" class="text-orange-500 font-bold underline">Organiwork</a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
+                                        <path class=" stroke-none visible fill-orange-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                        <path class="stroke-none visible fill-orange-500" d="M7.086 9.975a.75.75 0 0 1-1.06 0 3.5 3.5 0 0 1 0-4.95l2-2a3.5 3.5 0 0 1 5.396 4.402.75.75 0 0 1-1.251-.827 2 2 0 0 0-3.085-2.514l-2 2a2 2 0 0 0 0 2.828.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
                                     </svg>
-                                    <a href="https://www.organiwork.com/" target="_blank" class="text-orange-300 font-bold underline">Organiwork</a>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('vtimes.organiwork_description') }}</div>
                             </div>
                             <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
                                 <div class="w-[40%] flex">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
-                                        <path class="fill-blue-500 stroke-transparent" d="M17.74 2.76a4.32 4.32 0 0 1 0 6.1l-1.53 1.52c-1.12 1.12-2.7 1.47-4.14 1.09l2.62-2.61l.76-.77l.76-.76c.84-.84.84-2.2 0-3.04a2.13 2.13 0 0 0-3.04 0l-.77.76l-3.38 3.38c-.37-1.44-.02-3.02 1.1-4.14l1.52-1.53a4.32 4.32 0 0 1 6.1 0M8.59 13.43l5.34-5.34c.42-.42.42-1.1 0-1.52c-.44-.43-1.13-.39-1.53 0l-5.33 5.34c-.42.42-.42 1.1 0 1.52c.44.43 1.13.39 1.52 0m-.76 2.29l4.14-4.15c.38 1.44.03 3.02-1.09 4.14l-1.52 1.53a4.32 4.32 0 0 1-6.1 0a4.32 4.32 0 0 1 0-6.1l1.53-1.52c1.12-1.12 2.7-1.47 4.14-1.1l-4.14 4.15c-.85.84-.85 2.2 0 3.05c.84.84 2.2.84 3.04 0"/>
+                                    <a href="https://www.modern-restaurant.com/" target="_blank" class="text-blue-500 font-bold">Modern Restaurant</a>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
+                                        <path class=" stroke-none visible fill-sky-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                        <path class="fill-sky-500 stroke-none visible" d="M7.086 9.975a.75.75 0 0 1-1.06 0 3.5 3.5 0 0 1 0-4.95l2-2a3.5 3.5 0 0 1 5.396 4.402.75.75 0 0 1-1.251-.827 2 2 0 0 0-3.085-2.514l-2 2a2 2 0 0 0 0 2.828.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
                                     </svg>
-                                    <a href="https://www.modern-restaurant.com/" target="_blank" class="text-blue-500 font-bold underline">Modern Restaurant</a>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('vtimes.modern_restaurant_description') }}</div>
                             </div>
@@ -285,10 +268,11 @@
                             </div>
                         </div>
                         <span class="flex justify-end">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
-                                <path class="fill-blue-500 stroke-transparent" d="M17.74 2.76a4.32 4.32 0 0 1 0 6.1l-1.53 1.52c-1.12 1.12-2.7 1.47-4.14 1.09l2.62-2.61l.76-.77l.76-.76c.84-.84.84-2.2 0-3.04a2.13 2.13 0 0 0-3.04 0l-.77.76l-3.38 3.38c-.37-1.44-.02-3.02 1.1-4.14l1.52-1.53a4.32 4.32 0 0 1 6.1 0M8.59 13.43l5.34-5.34c.42-.42.42-1.1 0-1.52c-.44-.43-1.13-.39-1.53 0l-5.33 5.34c-.42.42-.42 1.1 0 1.52c.44.43 1.13.39 1.52 0m-.76 2.29l4.14-4.15c.38 1.44.03 3.02-1.09 4.14l-1.52 1.53a4.32 4.32 0 0 1-6.1 0a4.32 4.32 0 0 1 0-6.1l1.53-1.52c1.12-1.12 2.7-1.47 4.14-1.1l-4.14 4.15c-.85.84-.85 2.2 0 3.05c.84.84 2.2.84 3.04 0"/>
-                            </svg>
                             <a href="https://www.universidadmaya.edu.mx/" target="_blank" class="text-blue-500 text-sm underline">{{ $t('um.url') }}</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
+                                <path class=" stroke-none visible fill-sky-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                <path class="fill-sky-500 stroke-none visible" d="M7.086 9.975a.75.75 0 0 1-1.06 0 3.5 3.5 0 0 1 0-4.95l2-2a3.5 3.5 0 0 1 5.396 4.402.75.75 0 0 1-1.251-.827 2 2 0 0 0-3.085-2.514l-2 2a2 2 0 0 0 0 2.828.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+                            </svg>
                         </span>
                         <div class="dark:text-slate-300 text-slate-800 mt-3"> <!-- Experience container -->
                             <p class="text-justify dark:bg-slate-800 bg-slate-50 p-2 rounded-md">{{ $t('um.description') }}</p>
@@ -314,10 +298,11 @@
                             </div>
                         </div>
                         <span class="flex justify-end">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
-                                <path class="fill-blue-500 stroke-transparent" d="M17.74 2.76a4.32 4.32 0 0 1 0 6.1l-1.53 1.52c-1.12 1.12-2.7 1.47-4.14 1.09l2.62-2.61l.76-.77l.76-.76c.84-.84.84-2.2 0-3.04a2.13 2.13 0 0 0-3.04 0l-.77.76l-3.38 3.38c-.37-1.44-.02-3.02 1.1-4.14l1.52-1.53a4.32 4.32 0 0 1 6.1 0M8.59 13.43l5.34-5.34c.42-.42.42-1.1 0-1.52c-.44-.43-1.13-.39-1.53 0l-5.33 5.34c-.42.42-.42 1.1 0 1.52c.44.43 1.13.39 1.52 0m-.76 2.29l4.14-4.15c.38 1.44.03 3.02-1.09 4.14l-1.52 1.53a4.32 4.32 0 0 1-6.1 0a4.32 4.32 0 0 1 0-6.1l1.53-1.52c1.12-1.12 2.7-1.47 4.14-1.1l-4.14 4.15c-.85.84-.85 2.2 0 3.05c.84.84 2.2.84 3.04 0"/>
-                            </svg>
                             <a href="https://redlaboralich.mx/" target="_blank" class="text-blue-500 text-sm underline">{{ $t('ich.url') }}</a>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
+                                <path class=" stroke-none visible fill-sky-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                <path class="fill-sky-500 stroke-none visible" d="M7.086 9.975a.75.75 0 0 1-1.06 0 3.5 3.5 0 0 1 0-4.95l2-2a3.5 3.5 0 0 1 5.396 4.402.75.75 0 0 1-1.251-.827 2 2 0 0 0-3.085-2.514l-2 2a2 2 0 0 0 0 2.828.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+                            </svg>
                         </span>
                         <div class="dark:text-slate-300 text-slate-800 mt-3"> <!-- Experience container -->
                             <p class="text-justify dark:bg-slate-800 bg-slate-50 p-2 rounded-md">{{ $t('ich.description') }}</p>
@@ -384,4 +369,9 @@
         top: 30px;
         transform: scaleX(0);
     }
+
+    .box-shadow-hover:hover {
+        filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.70));
+        /* background-color: white; */
+        }
 </style>
