@@ -69,4 +69,18 @@
     "location": "Location",
     "courses": "Courses",
     "my_projects": "My projects",
+    "site_url":"Site url",
+    "frontend_code": "Frontend code",
+    "backend_code": "Backend code",
+    "short_description": "Short description",
+    "more_info": "More info",
+    "contractflow": {
+        "url": "https://qatravicons.vercel.app/",
+        "frontend_code_url": "https://github.com/Esteban-jv/contract-flow-front",
+        "backend_code_url": "private",
+        "short_description": "Contract management system for the administration of contracts, clients, suppliers and users with Multitenancy architecture.",
+        "stack": [
+            "Python", "DJango", "Django Rest Framework", "PostgreSQL", "AWS", "HTML", "CSS", "Javascript", "VueJS", "Tailwindcss", "Multitenancy"
+        ],
+    }
 }
