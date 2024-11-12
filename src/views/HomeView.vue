@@ -238,22 +238,22 @@
                             </ul>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
                             <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
-                                <div class="w-[40%] flex">
-                                    <a href="https://www.organiwork.com/" target="_blank" class="text-orange-500 font-bold underline">Organiwork</a>
+                                <div class="w-[40%] flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
                                         <path class=" stroke-none visible fill-orange-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                                         <path class="stroke-none visible fill-orange-500" d="M7.086 9.975a.75.75 0 0 1-1.06 0 3.5 3.5 0 0 1 0-4.95l2-2a3.5 3.5 0 0 1 5.396 4.402.75.75 0 0 1-1.251-.827 2 2 0 0 0-3.085-2.514l-2 2a2 2 0 0 0 0 2.828.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
                                     </svg>
+                                    <a href="https://www.organiwork.com/" target="_blank" class="text-orange-500 font-bold">Organiwork</a>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('vtimes.organiwork_description') }}</div>
                             </div>
                             <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
-                                <div class="w-[40%] flex">
-                                    <a href="https://www.modern-restaurant.com/" target="_blank" class="text-blue-500 font-bold">Modern Restaurant</a>
+                                <div class="w-[40%] flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
                                         <path class=" stroke-none visible fill-sky-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                                         <path class="fill-sky-500 stroke-none visible" d="M7.086 9.975a.75.75 0 0 1-1.06 0 3.5 3.5 0 0 1 0-4.95l2-2a3.5 3.5 0 0 1 5.396 4.402.75.75 0 0 1-1.251-.827 2 2 0 0 0-3.085-2.514l-2 2a2 2 0 0 0 0 2.828.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
                                     </svg>
+                                    <a href="https://www.modern-restaurant.com/" target="_blank" class="text-blue-500 font-bold">Modern Restaurant</a>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('vtimes.modern_restaurant_description') }}</div>
                             </div>
@@ -282,7 +282,7 @@
                             </ul>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
                             <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
-                                <div class="w-[40%]">
+                                <div class="w-[40%] flex items-center">
                                     <span class="text-blue-600 font-bold">SIUM Escolar</span>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('um.sium_description') }}</div>
@@ -312,7 +312,7 @@
                             </ul>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
                             <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
-                                <div class="w-[40%]">
+                                <div class="w-[40%] flex items-center">
                                     <span class="text-red-600 font-bold">RedICH App</span>
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('ich.redich_description') }}</div>
