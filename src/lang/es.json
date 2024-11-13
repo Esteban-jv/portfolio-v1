@@ -76,12 +76,21 @@
     "short_description": "Descripción corta",
     "more_info": "Más información",
     "contractflow": {
-        "url": "https://qatravicons.vercel.app/",
-        "frontend_code_url": "https://github.com/Esteban-jv/contract-flow-front",
+        "url": "https://qacontractflow.com",
+        "frontend_code_url": "https://contract-flow-front",
         "backend_code_url": "Privado",
         "short_description": "Sistema de administración de contratos para clientes, proveedores y usuarios con arquitectura multitenancy.",
         "stack": [
             "Python", "DJango", "Django Rest Framework", "PostgreSQL", "AWS", "HTML", "CSS", "Javascript", "VueJS", "Tailwindcss", "Multitenancy"
+        ],
+    },
+    "app_salon": {
+        "url": "https://app-salon-mevn-front-vue/auth/login",
+        "frontend_code_url": "https://AppSalon_MEVN_Front_Vue",
+        "backend_code_url": "https://AppSalon_MEVN_Back_Node",
+        "short_description": "Sistema de ventas para barbería para administración de citas y usuarios desarrollada con el stack de MEVN.",
+        "stack": [
+            "Mongo", "Express", "VueJs", "Node", "CSS", "Javascript", "Tailwindcss"
         ],
     }
 }
