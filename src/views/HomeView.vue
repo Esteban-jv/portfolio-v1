@@ -34,6 +34,11 @@
         'SVN', 'PostgreSQL', 'MMSQL', 'Python', 'DJango', 'DRF', 'Bootstrap', 'Rest'
     ])
 
+    const scrollTo = (element) => {
+        console.log("element", element)
+        element.scrollIntoView({ behavior: 'smooth' })
+    }
+
     onMounted(() => {
         document.body.style.overflow = 'hidden'
         setTimeout(() => {
@@ -211,16 +216,19 @@
             <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] dark:bg-slate-900 bg-slate-100 md:pl-10 z-50 max-h-[200px]">
                 <div class="md:inline flex justify-evenly gap-0">
                     <div
+                        @click="scrollTo(vtimes)"
                         class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
                         :class="[ vtimesProgress > 0 && vtimesProgress < 1 ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >{{ $t('current') }}</div>
                     <div 
+                        @click="scrollTo(um)"
                         class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
                         :class="[ umProgress > 0 && umProgress < 1 ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >2020</div>
                     <div
+                        @click="scrollTo(ich)"
                         class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
-                        :class="[ ichProgress > 0 && ichProgress < 1 ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
+                        :class="[ ichProgress > 0 ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >2019</div>
                 </div>
                 <div class="md:mx-2">
@@ -231,7 +239,7 @@
             </div>
             <div class="md:w-[80%] w-full px-5 md:px-10">
                 <article ref="experience" class="">
-                    <div ref="vtimes" class="experience transition-opacity duration-300" :class="[(vtimesProgress > 0 && umProgress < 0.4) ? 'opacity-100' : 'opacity-50']">
+                    <div ref="vtimes" class="experience transition-opacity duration-500 pt-[60px] md:pt-0" :class="[(vtimesProgress > 0 && umProgress < 0.4) ? 'opacity-100' : 'opacity-50']">
                         <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">01/2022 - {{ $t('current') }}. Vacation Times</div>
                         <div class="p-2 rounded-lg">
                             <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
@@ -275,7 +283,7 @@
                         </div>
                     </div>
 
-                    <div ref="um" class="experience transition-opacity duration-300" :class="[(umProgress > 0.4 && ichProgress < 0.5) ? 'opacity-100' : 'opacity-50']">
+                    <div ref="um" class="experience transition-opacity duration-500 pt-[60px] md:pt-0" :class="[(umProgress > 0.4 && ichProgress < 0.5) ? 'opacity-100' : 'opacity-50']">
                         <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">09/2019 - 01/2022. Universidad Maya</div>
                         <div class="p-2 rounded-lg">
                             <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
@@ -305,7 +313,7 @@
                         </div>
                     </div>
 
-                    <div ref="ich" class="experience transition-opacity duration-300" :class="[ichProgress > 0.5 ? 'opacity-100' : 'opacity-50']">
+                    <div ref="ich" class="experience transition-opacity duration-500 pt-[60px] md:pt-0" :class="[ichProgress > 0.5 ? 'opacity-100' : 'opacity-50']">
                         <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">02/2019 - 09/2022. Red Laboral ICH</div>
                         <div class="p-2 rounded-lg">
                             <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
