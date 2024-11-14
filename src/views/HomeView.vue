@@ -231,7 +231,7 @@
             </div>
             <div class="md:w-[80%] w-full px-5 md:px-10">
                 <article ref="experience" class="">
-                    <div ref="vtimes" class="experience opacity-40 transition-opacity duration-300" :class="{'opacity-100' : vtimesProgress > 0 && umProgress < 0.4}">
+                    <div ref="vtimes" class="experience transition-opacity duration-300" :class="[(vtimesProgress > 0 && umProgress < 0.4) ? 'opacity-100' : 'opacity-50']">
                         <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">01/2022 - {{ $t('current') }}. Vacation Times</div>
                         <div class="p-2 rounded-lg">
                             <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
@@ -275,7 +275,7 @@
                         </div>
                     </div>
 
-                    <div ref="um" class="experience opacity-40 transition-opacity duration-300" :class="{'opacity-100' : umProgress > 0.4 && ichProgress < 0.5}">
+                    <div ref="um" class="experience transition-opacity duration-300" :class="[(umProgress > 0.4 && ichProgress < 0.5) ? 'opacity-100' : 'opacity-50']">
                         <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">09/2019 - 01/2022. Universidad Maya</div>
                         <div class="p-2 rounded-lg">
                             <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
@@ -305,7 +305,7 @@
                         </div>
                     </div>
 
-                    <div ref="ich" class="experience opacity-40 transition-opacity duration-300" :class="{'opacity-100' : ichProgress > 0.5}">
+                    <div ref="ich" class="experience transition-opacity duration-300" :class="[ichProgress > 0.5 ? 'opacity-100' : 'opacity-50']">
                         <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">02/2019 - 09/2022. Red Laboral ICH</div>
                         <div class="p-2 rounded-lg">
                             <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
