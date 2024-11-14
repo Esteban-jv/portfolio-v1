@@ -1,5 +1,6 @@
 <script setup>
     import { ref, inject, onMounted } from 'vue';
+    import { animate, timeline, stagger } from "motion"
     import Header from '../components/Header.vue';
     import Footer from '../components/Footer.vue';
 
@@ -11,12 +12,39 @@
         } else {
             TA.value = 'loc.source'
         }
+
+        animate(
+            ".header",
+            { y: [-12,0], opacity: [0,1] },
+            { delay: 0 }
+        )
+        animate(
+            "h1",
+            { y: [-12,0], opacity: [0,1] },
+            { delay: 0.1 }
+        )
+        animate(
+            "section",
+            { y: [0,12], opacity: [0,1] },
+            { delay: 0.2 }
+        )
+        timeline([
+            [".smoothimg", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 0.3, delay: stagger(0.1) }],
+        ])
+        timeline([
+            ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 0.4, delay: stagger(0.05) }],
+        ])
+        timeline([
+            ["footer", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 0.5, delay: stagger(0.05) }],
+        ])
     });
 
     const getValueKeyFromString = inject('getValueKeyFromString')
 </script>
 <template>
-    <Header :start-time="0" />
+    <div class="sticky top-0 z-50">
+        <Header :start-time="0" />
+    </div>
     <section class="px-5 md:px-10">
         <div class="flex justify-start pb-1">
             <h2 class="text-3xl dark:text-slate-300 text-slate-800 kanit-regular">{{ $t('my_projects') }}</h2>
@@ -153,6 +181,79 @@
     <section class="px-5 md:px-10">
         <div class="flex justify-start pb-1">
             <h2 class="text-3xl dark:text-slate-300 text-slate-800 kanit-regular">{{ $t('courses') }}</h2>
+        </div>
+        <div class="p-3">
+            <div class="my-3">
+                <h3 class="text-2xl dark:text-slate-300 text-slate-800 kanit-regular mb-2 flex justify-center">Codeigniter</h3>
+                <div class="flex flex-col md:flex-row border-2 p-2 dark:border-sky-950 border-sky-200 rounded-md">
+                    <div class="w-full md:w-1/2 flex self-center">
+                        <img src="/courses/CodeIgniter for Beginners Build a Complete Web Application.jpg" alt="Web Development" class="w-full h-auto p-2" />
+                    </div>
+                    <div class="w-full md:w-1/2 md:px-3 my-0 flex-row self-center">
+                        <h4 class="text-xl dark:text-slate-300 text-slate-800 kanit-regular my-1 flex justify-center">{{ $t('short_description') }}</h4>
+                        <p class="text-base dark:text-slate-300 text-slate-800 text-justify">{{ $t('codeigniter.short_description') }}</p>
+                        <h4 class="text-xl dark:text-slate-300 text-slate-800 kanit-regular my-1 flex justify-center">{{ $t('stack') }}</h4>
+                        <div class="rounded-lg">
+                            <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
+                                <span class="badge bg-green-800 text-green-200 shadow-md inline-flex" v-for="st in $tm('codeigniter.stack')" :key="st">{{ getValueKeyFromString(st, TA) }}</span>
+                            </div>
+                        </div>
+                        <div class="dark:bg-sky-950 bg-sky-50 p-3 my-2">
+                            <h4 class="text-xl dark:text-slate-300 text-slate-800 kanit-regular my-1 flex justify-center">{{ $t('more_info') }}</h4>
+                            <div class="flex">
+                                <div class="w-[25%]">
+                                    <p class="text-sm dark:text-slate-300 text-slate-800">{{ $t('site_url') }}</p>
+                                </div>
+                                <div class="w-[75%]">
+                                    <span class="flex justify-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
+                                            <path class=" stroke-none visible fill-sky-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                            <path class="fill-sky-500 stroke-none visible" d="M7.086 9.975a.75.75 0 0 1-1.06 0 3.5 3.5 0 0 1 0-4.95l2-2a3.5 3.5 0 0 1 5.396 4.402.75.75 0 0 1-1.251-.827 2 2 0 0 0-3.085-2.514l-2 2a2 2 0 0 0 0 2.828.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+                                        </svg>
+                                        <a href="https://www.udemy.com/course/codeigniter-from-scratch/" target="_blank" class="text-blue-500 text-xs underline">{{ $t('codeigniter.url') }}</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="my-3">
+                <h3 class="text-2xl dark:text-slate-300 text-slate-800 kanit-regular mb-2 flex justify-center">Vue 3</h3>
+                <div class="flex flex-col md:flex-row border-2 p-2 dark:border-sky-950 border-sky-200 rounded-md">
+                    <div class="w-full md:w-1/2 md:px-3 my-0 flex-row self-center">
+                        <h4 class="text-xl dark:text-slate-300 text-slate-800 kanit-regular my-1 flex justify-center">{{ $t('short_description') }}</h4>
+                        <p class="text-base dark:text-slate-300 text-slate-800 text-justify">{{ $t('vue.short_description') }}</p>
+                        <h4 class="text-xl dark:text-slate-300 text-slate-800 kanit-regular my-1 flex justify-center">{{ $t('stack') }}</h4>
+                        <div class="rounded-lg">
+                            <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
+                                <span class="badge bg-green-800 text-green-200 shadow-md inline-flex" v-for="st in $tm('vue.stack')" :key="st">{{ getValueKeyFromString(st, TA) }}</span>
+                            </div>
+                        </div>
+                        <div class="dark:bg-sky-950 bg-sky-50 p-3 my-2">
+                            <h4 class="text-xl dark:text-slate-300 text-slate-800 kanit-regular my-1 flex justify-center">{{ $t('more_info') }}</h4>
+                            <div class="flex">
+                                <div class="w-[25%]">
+                                    <p class="text-sm dark:text-slate-300 text-slate-800">{{ $t('course_url') }}</p>
+                                </div>
+                                <div class="w-[75%]">
+                                    <span class="flex justify-start">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
+                                            <path class=" stroke-none visible fill-sky-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
+                                            <path class="fill-sky-500 stroke-none visible" d="M7.086 9.975a.75.75 0 0 1-1.06 0 3.5 3.5 0 0 1 0-4.95l2-2a3.5 3.5 0 0 1 5.396 4.402.75.75 0 0 1-1.251-.827 2 2 0 0 0-3.085-2.514l-2 2a2 2 0 0 0 0 2.828.75.75 0 0 1 0 1.06Z" clip-rule="evenodd" />
+                                        </svg>
+                                        <a href="https://www.udemy.com/course/vuejs-la-guia-completa-composition-pinia-mevn-creando-proyectos-reales/" target="_blank" class="text-blue-500 text-xs underline">{{ $t('vue.url') }}</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 flex self-center">
+                        <img src="/courses/Vue.jpg" alt="Web Development" class="w-full h-auto p-2" />
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <Footer />

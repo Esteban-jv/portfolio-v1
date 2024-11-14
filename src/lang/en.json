@@ -70,6 +70,7 @@
     "courses": "Courses",
     "my_projects": "My projects",
     "site_url":"Site url",
+    "course_url":"Course url",
     "frontend_code": "Frontend code",
     "backend_code": "Backend code",
     "short_description": "Short description",
@@ -95,6 +96,20 @@
         "short_description": "POS system for barbershop management, appointments and users management made with MEVN Stack.",
         "stack": [
             "Mongo", "Express", "VueJs", "Node", "CSS", "Javascript", "Tailwindcss"
+        ],
+    },
+    "codeigniter": {
+        "url": "https://codeigniter-from-scratch/",
+        "short_description": "Learn how to quickly build fully-featured web applications with the most popular lightweight PHP MVC framework.",
+        "stack": [
+            "Codeigniter"
+        ],
+    },
+    "vue": {
+        "url": "https://vuejs-la-guia-completa-composition-pinia-mevn-creando-proyectos-reales/",
+        "short_description": "Learn Vue.js creating real world projects, learn MEVN Pinia Composition Vue Router SFC Vuetify Firebase Composables APIs.",
+        "stack": [
+            "Vue", "Tailwindcss", "Firebase", "MEVN", "Composition API", "Pinia", "Vue Router", "SFC", "Composables", "APIs"
         ],
     }
 }

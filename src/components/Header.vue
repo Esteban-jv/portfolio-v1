@@ -1,6 +1,6 @@
 <script setup>
-    import { onMounted, ref, inject } from 'vue'
-    import { timeline, stagger, animate, scroll } from "motion"
+    import { onMounted, ref } from 'vue'
+    import { timeline, stagger } from "motion"
     import { usePreferences } from '../stores/usePreferences';
     import { RouterLink } from 'vue-router';
 

@@ -71,6 +71,7 @@
     "courses": "Cursos",
     "my_projects": "Mis proyectos",
     "site_url":"Url del sitio",
+    "course_url":"Url del curso",
     "frontend_code": "Código frontend",
     "backend_code": "Código backend",
     "short_description": "Descripción corta",
@@ -96,6 +97,20 @@
         "short_description": "Sistema de ventas para barbería para administración de citas y usuarios desarrollada con el stack de MEVN.",
         "stack": [
             "Mongo", "Express", "VueJs", "Node", "CSS", "Javascript", "Tailwindcss"
+        ],
+    },
+    "codeigniter": {
+        "url": "https://codeigniter-from-scratch/",
+        "short_description": "Aprende como construir rápidamente aplicaciones completamente equipadas con el framework más popular MVC de PHP.",
+        "stack": [
+            "Codeigniter"
+        ],
+    },
+    "vue": {
+        "url": "https://vuejs-la-guia-completa-composition-pinia-mevn-creando-proyectos-reales/",
+        "short_description": "Aprende Vue.js creando Proyectos Reales aprende MEVN Pinia Composition Vue Router SFC Vuetify Firebase Composables APIs.",
+        "stack": [
+            "Vue", "Tailwindcss", "Firebase", "MEVN", "Composition API", "Pinia", "Vue Router", "SFC", "Composables", "APIs"
         ],
     }
 }
