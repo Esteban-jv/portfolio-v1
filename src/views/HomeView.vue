@@ -1,8 +1,11 @@
 <script setup>
-    import { onMounted, ref, inject } from 'vue'
+    import { onMounted, ref, computed, inject } from 'vue'
     import { timeline, stagger, animate, scroll } from "motion"
+    import { useRoute } from 'vue-router';
     import Header from '../components/Header.vue';
     import Footer from '../components/Footer.vue';
+
+    const route = useRoute()
 
     const TA = ref('') // Translate Access
 
@@ -34,6 +37,13 @@
         'SVN', 'PostgreSQL', 'MMSQL', 'Python', 'DJango', 'DRF', 'Bootstrap', 'Rest'
     ])
 
+    // Is what logo is taking for
+    const startTime = ref(0)
+
+    const startTimeLoaded = computed (() => {
+        return route.params.load === 'home' ? 0 : 2.7
+    } )
+
     const scrollTo = (element) => {
         console.log("element", element)
         element.scrollIntoView({ behavior: 'smooth' })
@@ -43,7 +53,7 @@
         document.body.style.overflow = 'hidden'
         setTimeout(() => {
             document.body.style.overflow = 'auto'
-        }, 2800)
+        }, ( startTimeLoaded.value * 1000 ) )
         // console.warn(import.meta.env.VITE_APP_MODE)
         if(import.meta.env.VITE_APP_MODE === 'production') {
             TA.value = 'b.s'
@@ -61,40 +71,44 @@
             // partially visible even when progress is at 0
             visibility: "visible",
         });
+        if(startTimeLoaded.value > 0) {
+            timeline([
+                    [".logo", draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
 
-        timeline([
-            [".logo", draw(1), { duration: 0.2, at: 0.2, delay: stagger(0.1) }],
-
-            [shapeOutside.value, draw(1), { duration: 0.6, at: 0.8, delay: stagger(0.1) }],
-            [shapeInisde.value, draw(1), { duration: 0.6, at: 0.9, delay: stagger(0.1) }],
-        ],
-        { direction: "alternate", repeat: 1, duration: 1.4 }
-        )
-
+                    [shapeOutside.value, draw(1), { duration: 0.6, at: 0.8, delay: stagger(0.1) }],
+                    [shapeInisde.value, draw(1), { duration: 0.6, at: 0.9, delay: stagger(0.1) }],
+                ],
+                { direction: "alternate", repeat: 1, duration: 1.4 }
+            )
+            animate(
+                ".logo",
+                { opacity: [1,0] },
+                { delay: 2.5 }
+            )
+        }
         animate(
-            ".logo",
-            { opacity: [1,0] },
-            { delay: 2.5 }
+            ".header",
+            { y: [-12,0], opacity: [0,1] },
+            { delay: startTimeLoaded.value }
         )
-
         animate(
             "h1",
-            { y: [0,12], opacity: [0,1] },
-            { delay: 2.8 }
+            { y: [-12,0], opacity: [0,1] },
+            { delay: startTimeLoaded.value + 0.1 }
         )
         animate(
             "section",
             { y: [0,12], opacity: [0,1] },
-            { delay: 2.9 }
+            { delay: startTimeLoaded.value + 0.2 }
         )
         timeline([
-            [".smoothimg", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 3, delay: stagger(0.1) }],
+            [".smoothimg", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: startTimeLoaded.value + 0.3, delay: stagger(0.1) }],
         ])
         timeline([
-            ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 3.1, delay: stagger(0.05) }],
+            ["span", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: startTimeLoaded.value + 0.4, delay: stagger(0.05) }],
         ])
         timeline([
-            ["footer", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: 3.2, delay: stagger(0.05) }],
+            ["footer", { y: [6,0], opacity: [0,1] }, { duration: 0.05, at: startTimeLoaded.value + 0.5, delay: stagger(0.05) }],
         ])
 
         scroll((info) => {
@@ -144,8 +158,14 @@
             <path class="logo" ref="shapeInisde" d="M 28 38 L 28 61 L 50 71 L 72 61 L 72 38 L 50 28 Z" pathLength="1"></path>
         </svg>
     </div>
-    <Header />
-    <section class="p-5 md:px-10">
+    <div class="sticky top-0 z-50">
+        <Header :start-time="startTimeLoaded" />
+    </div>
+    <div class="px-5 md:px-10 py-3">
+        <h1 class="dark:text-slate-300 text-slate-800 text-3xl md:text-5xl kanit-regular">José Esteban Juárez Velázquez</h1>
+        <h1 class="text-slate-500 text-2xl md:text-3xl mt-1 kanit-regular"> {{ $t('web_developer') }}</h1>
+    </div>
+    <section class="p-5 md:px-10 inherit">
         <div class="md:flex inline">
             <div class="md:w-[60%] w-full">
                 <div class="md:flex inline">
@@ -208,12 +228,12 @@
             <p class="text-justify text-sm">{{ $t('education_description') }}</p>
         </div>
     </section>
-    <section class="">
+    <section class="pt-0 lg:pt-[60px] xl:pt-[105px]">
         <div class="flex justify-start pb-1 p-5 md:p-10">
             <h2 class="text-3xl dark:text-slate-300 text-slate-800 kanit-regular">{{ $t('experience') }}</h2>
         </div>
         <div class="md:flex inline">
-            <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] dark:bg-slate-900 bg-slate-100 md:pl-10 z-50 max-h-[200px]">
+            <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] dark:bg-slate-900 bg-slate-100 md:pl-10 z-50 max-h-[200px] pt-[-200px]">
                 <div class="md:inline flex justify-evenly gap-0">
                     <div
                         @click="scrollTo(vtimes)"

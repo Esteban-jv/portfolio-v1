@@ -56,10 +56,12 @@ export const usePreferences = defineStore('preferences', () => {
             toggleMode()
         }
     })
+    const noTheme = computed(() => theme.value === 'dark' ? 'light' : 'dark')
     
 
     return {
         theme,
+        noTheme,
         i18n,
         toggleMode,
         setLocaleInStorage,

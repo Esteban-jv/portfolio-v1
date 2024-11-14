@@ -75,6 +75,11 @@
     "backend_code": "Código backend",
     "short_description": "Descripción corta",
     "more_info": "Más información",
+    "dark": "Oscuro",
+    "light": "Claro",
+    "home": "Inicio",
+    "es": "Español",
+    "en": "Inglés",
     "contractflow": {
         "url": "https://qacontractflow.com",
         "frontend_code_url": "https://contract-flow-front",

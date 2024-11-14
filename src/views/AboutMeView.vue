@@ -16,7 +16,7 @@
     const getValueKeyFromString = inject('getValueKeyFromString')
 </script>
 <template>
-    <Header />
+    <Header :start-time="0" />
     <section class="px-5 md:px-10">
         <div class="flex justify-start pb-1">
             <h2 class="text-3xl dark:text-slate-300 text-slate-800 kanit-regular">{{ $t('my_projects') }}</h2>
