@@ -15,7 +15,12 @@ const router = createRouter({
             name: 'projects',
             component: AboutMeView
         }
-    ]
+    ],
+    scrollBehavior() {
+        document.getElementById('app').scrollIntoView({ 
+            /*behavior: 'smooth'*/ 
+        });
+    }
 })
 
 export default router

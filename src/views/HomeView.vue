@@ -4,7 +4,6 @@
     import { useRoute } from 'vue-router';
     import Header from '../components/Header.vue';
     import Footer from '../components/Footer.vue';
-    import { debounce } from 'lodash'
 
     const route = useRoute()
 
@@ -131,6 +130,11 @@
             animate(progressBarIch.value, {  scaleX: [0, 1] }),
             { target: ich.value, offset: ["start end", "end end"] }
         )
+
+        animate('.contact-object', 
+            { filter: "drop-shadow(0 0 4px rgba(255, 255, 255, 0.70))" },
+            {filter: { duration: 1.5, delay: 1, repeat: 999, direction: "alternate" }}
+        )
     })
 
     const getValueKeyFromString = inject('getValueKeyFromString')
@@ -175,7 +179,7 @@
                             <img class="h-full w-full rounded-full" src="/Profile.jpg" alt="" />
                         </div>
                     </div>
-                    <div class="flex md:flex-col min-w-[2rem] gap-2 justify-evenly items-center box-shadow-hover border-blue-500 border-2 transition duration-500 shadow-md rounded-md mt-3 md:mt-0 md:ml-3 p-1">
+                    <div class="contact-object flex md:flex-col min-w-[2rem] gap-2 justify-evenly items-center box-shadow-hover border-blue-500 border-2 transition duration-500 shadow-md rounded-md mt-3 md:mt-0 md:ml-3 p-1">
                         <a href="https://www.linkedin.com/in/jos%C3%A9-esteban-juarez-velazquez-68b511293/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_verification_details%3BQD5xzlHVQNSK5buTioxGGA%3D%3D" target="_blank">
                             <img src="/Linkedin.svg" alt="" class="w-5 h-5 smoothimg hover:h-7 hover:w-7 transition-all duration-300">
                             <!-- <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-8 h-8 hover:bg-white transition-colors duration-200 rounded-md">
