@@ -4,6 +4,7 @@
     import { useRoute } from 'vue-router';
     import Header from '../components/Header.vue';
     import Footer from '../components/Footer.vue';
+    import { debounce } from 'lodash'
 
     const route = useRoute()
 
@@ -237,21 +238,21 @@
                 <div class="md:inline flex justify-evenly gap-0">
                     <div
                         @click="scrollTo(vtimes)"
-                        class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
+                        class="md:m-2 text-xl p-2 cursor-pointer w-full text-center md:rounded-b-md"
                         :class="[ vtimesProgress > 0 && (vtimesProgress < 1 || umProgress === 0) ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >{{ $t('current') }}</div>
                     <div 
                         @click="scrollTo(um)"
-                        class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
+                        class="md:m-2 text-xl p-2 cursor-pointer w-full text-center md:rounded-md"
                         :class="[ umProgress > 0 && (umProgress < 1 || ichProgress === 0) ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >2020</div>
                     <div
                         @click="scrollTo(ich)"
-                        class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
+                        class="md:m-2 text-xl p-2 cursor-pointer w-full text-center md:rounded-t-md"
                         :class="[ ichProgress > 0 ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >2019</div>
                 </div>
-                <div class="md:mx-2">
+                <div class="md:mx-2 w-full">
                     <div ref="progressBarVt" class="progress bg-green-500"></div>
                     <div ref="progressBarUm" class="progress bg-green-400"></div>
                     <div ref="progressBarIch" class="progress bg-green-300"></div>
@@ -280,7 +281,7 @@
                                 <li v-for="activity in $tm('vtimes.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
-                            <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
+                            <div class="flex dark:bg-sky-950 bg-sky-50 rounded-md p-3 my-2">
                                 <div class="w-[40%] flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
                                         <path class=" stroke-none visible fill-orange-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
@@ -290,7 +291,7 @@
                                 </div>
                                 <div class="w-[60%] text-sm">{{ $t('vtimes.organiwork_description') }}</div>
                             </div>
-                            <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
+                            <div class="flex dark:bg-sky-950 bg-sky-50 rounded-md p-3 my-2">
                                 <div class="w-[40%] flex items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" class="size-4">
                                         <path class=" stroke-none visible fill-sky-500" d="M8.914 6.025a.75.75 0 0 1 1.06 0 3.5 3.5 0 0 1 0 4.95l-2 2a3.5 3.5 0 0 1-5.396-4.402.75.75 0 0 1 1.251.827 2 2 0 0 0 3.085 2.514l2-2a2 2 0 0 0 0-2.828.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
@@ -324,7 +325,7 @@
                                 <li v-for="activity in $tm('um.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
-                            <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
+                            <div class="flex dark:bg-sky-950 bg-sky-50 rounded-md p-3 my-2">
                                 <div class="w-[40%] flex items-center">
                                     <span class="text-blue-600 font-bold">SIUM Escolar</span>
                                 </div>
@@ -354,7 +355,7 @@
                                 <li v-for="activity in $tm('ich.activities')" :key="activity">{{ getValueKeyFromString(activity, TA) }}</li>
                             </ul>
                             <h2 class="text-xl mt-2 kanit-regular">{{ $t('main_development') }}</h2>
-                            <div class="flex dark:bg-sky-950 bg-sky-50 p-3 my-2">
+                            <div class="flex dark:bg-sky-950 bg-sky-50 rounded-md p-3 my-2">
                                 <div class="w-[40%] flex items-center">
                                     <span class="text-red-600 font-bold">RedICH App</span>
                                 </div>
