@@ -238,12 +238,12 @@
                     <div
                         @click="scrollTo(vtimes)"
                         class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
-                        :class="[ vtimesProgress > 0 && vtimesProgress < 1 ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
+                        :class="[ vtimesProgress > 0 && (vtimesProgress < 1 || umProgress === 0) ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >{{ $t('current') }}</div>
                     <div 
                         @click="scrollTo(um)"
                         class="md:m-2 text-xl p-2 cursor-pointer md:w-[90%] w-full text-center"
-                        :class="[ umProgress > 0 && umProgress < 1 ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
+                        :class="[ umProgress > 0 && (umProgress < 1 || ichProgress === 0) ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
                     >2020</div>
                     <div
                         @click="scrollTo(ich)"
