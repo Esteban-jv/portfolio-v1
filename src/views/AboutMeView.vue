@@ -202,7 +202,7 @@
                             <h4 class="text-xl dark:text-slate-300 text-slate-800 kanit-regular my-1 flex justify-center">{{ $t('more_info') }}</h4>
                             <div class="flex">
                                 <div class="w-[25%]">
-                                    <p class="text-sm dark:text-slate-300 text-slate-800">{{ $t('site_url') }}</p>
+                                    <p class="text-sm dark:text-slate-300 text-slate-800">{{ $t('course_url') }}</p>
                                 </div>
                                 <div class="w-[75%]">
                                     <span class="flex justify-start">

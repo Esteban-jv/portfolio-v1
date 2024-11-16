@@ -46,7 +46,7 @@
 
     const scrollTo = (element) => {
         console.log("element", element)
-        element.scrollIntoView({ behavior: 'smooth' })
+        element.scrollIntoView({ behavior: 'smooth', block: 'end' })
     }
 
     onMounted(() => {
@@ -174,7 +174,7 @@
                             <img class="h-full w-full rounded-full" src="/Profile.jpg" alt="" />
                         </div>
                     </div>
-                    <div class="flex md:flex-col min-w-[2rem] gap-2 justify-evenly items-center box-shadow-hover border-sky-500 border-2 transition duration-500 shadow-md rounded-md mt-3 md:mt-0 md:ml-3 p-1">
+                    <div class="flex md:flex-col min-w-[2rem] gap-2 justify-evenly items-center box-shadow-hover border-blue-500 border-2 transition duration-500 shadow-md rounded-md mt-3 md:mt-0 md:ml-3 p-1">
                         <a href="https://www.linkedin.com/in/jos%C3%A9-esteban-juarez-velazquez-68b511293/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_verification_details%3BQD5xzlHVQNSK5buTioxGGA%3D%3D" target="_blank">
                             <img src="/Linkedin.svg" alt="" class="w-5 h-5 smoothimg hover:h-7 hover:w-7 transition-all duration-300">
                             <!-- <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" class="w-8 h-8 hover:bg-white transition-colors duration-200 rounded-md">
@@ -233,7 +233,7 @@
             <h2 class="text-3xl dark:text-slate-300 text-slate-800 kanit-regular">{{ $t('experience') }}</h2>
         </div>
         <div class="md:flex inline">
-            <div class="md:w-[20%] w-full sticky overflow-hidden top-[-13px] dark:bg-slate-900 bg-slate-100 md:pl-10 z-50 max-h-[200px] pt-[-200px]">
+            <div class="md:w-[20%] w-full sticky z-50 overflow-hidden top-[50px] dark:bg-slate-900 bg-slate-100 md:pl-10 max-h-[200px] pt-[-200px]">
                 <div class="md:inline flex justify-evenly gap-0">
                     <div
                         @click="scrollTo(vtimes)"
