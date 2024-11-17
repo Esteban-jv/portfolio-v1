@@ -109,7 +109,7 @@
         "urlText": "http://lobo11235.atwebpages.com/",
         "code_url": "https://github.com/Estebanjvj/lobo-v1",
         "code_url_text": "https://github.com/Estebanjvj/lobo-v1",
-        "short_description": "Candidate management system for a political party voters. This was my first development completely from 0 to deployment to production."
+        "short_description": "Candidate management system for a political party voters. This was my first development completely from scratch to deployment to production."
     },
     "codeigniter": {
         "title": "Codeigniter for beginers.",

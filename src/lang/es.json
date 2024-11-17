@@ -110,7 +110,7 @@
         "urlText": "http://lobo11235.atwebpages.com/",
         "code_url": "https://github.com/Estebanjvj/lobo-v1",
         "code_url_text": "https://github.com/Estebanjvj/lobo-v1",
-        "short_description": "Sistema de administración de candidatos a votantes para un partido político. Este fue mi primer desarrollo completamente desde 0 hasta despliegue a producción",
+        "short_description": "Sistema de administración de candidatos a votantes para un partido político. Este fue mi primer desarrollo completamente desde cero hasta despliegue a producción",
     },
     "codeigniter": {
         "title": "Codeigniter para principantes.",

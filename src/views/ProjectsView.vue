@@ -28,7 +28,7 @@
             },
             {
                 id: 2,
-                year: 2024,
+                year: 2023,
                 title: $t('app_salon.title'),
                 description: $t('app_salon.short_description'),
                 stack: ["Vue", "Tailwindcss", "Firebase", "MEVN", "Composition API", "Pinia", "Vue Router", "SFC", "Composables", "APIs"],
@@ -43,7 +43,7 @@
             },
             {
                 id: 3,
-                year: 2024,
+                year: 2018,
                 title: $t('lobo.title'),
                 description: $t('lobo.short_description'),
                 stack: ["PHP", "CPanel", "PostgreSQL"],
