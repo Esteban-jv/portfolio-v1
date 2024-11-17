@@ -22,17 +22,17 @@
         diseño como Builder, Factory, Singleton, entre otros. Aprendí a trabajar con SQL Server dando mantenimiento y creando procedures nuevos. \
         Además tambien aprendí a un poco de Wordpress y a crear Landing pages.",
         "activities": [
-            "Migración de sistemas. (Actualización de versión de laravel)",
-            "Desarrollo en PHP, Laravel, Wordpress y VueJS",
-            "Mantener y crear nuevos patrones de diseño para backend",
-            "Mantener y crear nuevos procedimientos almacenados en SQL Server",
-            "Despliegue en windows server y AWS EC2",
-            "Actualización y automatización de certificados de seguridad SSL",
-            "Creación de servidor de websockets",
+            "Migración de sistemas. (Actualización de versión de laravel).",
+            "Desarrollo en PHP, Laravel, Wordpress y VueJS.",
+            "Mantener y crear nuevos patrones de diseño para backend.",
+            "Mantener y crear nuevos procedimientos almacenados en SQL Server.",
+            "Despliegue en windows server y AWS EC2.",
+            "Actualización y automatización de certificados de seguridad SSL.",
+            "Creación de servidor de websockets.",
             "Creación y despliegue de landing pages."
         ],
         "organiwork_description": "Sistema de nóminas para la administración del personal, fichas, puestos, salarios y beneficios.",
-        "modern_restaurant_description": "Sistema POS de gestión de restaurantes, comandas a tiempo real y administración de inventario",
+        "modern_restaurant_description": "Sistema POS de gestión de restaurantes, comandas a tiempo real y administración de inventario.",
     },
     "um": {
         "url": "www.universidadmaya.com.edu",
@@ -70,7 +70,10 @@
     "location": "Ubicación",
     "courses": "Cursos",
     "my_projects": "Mis proyectos",
+    "my_own_projects": "Mis propios proyectos",
+    "my_taken_courses": "Mis cursos tomados",
     "site_url":"Url del sitio",
+    "learning": "Aprendizaje",
     "course_url":"Url del curso",
     "frontend_code": "Código frontend",
     "backend_code": "Código backend",
@@ -100,17 +103,53 @@
         ],
     },
     "codeigniter": {
-        "url": "https://codeigniter-from-scratch/",
-        "short_description": "Aprende como construir rápidamente aplicaciones completamente equipadas con el framework más popular MVC de PHP.",
-        "stack": [
-            "Codeigniter"
-        ],
+        "title": "Codeigniter para principantes.",
+        "url": "https://www.udemy.com/course/codeigniter-from-scratch/",
+        "urlText": "https://codeigniter-from-scratch/",
+        "short_description": "Aprende como construir rápidamente aplicaciones completamente equipadas con uno de los frameworks más populares de MVC para PHP.",
+        "learning": "Este curso me enseñó las principales diferencias entre Codeigniter 3 y Codeigniter 4. Aprendí a trabajar con la base de datos, \
+            a crear controladores, modelos y vistas. Aprendí a trabajar con rutas, a crear formularios y a trabajar con sesiones.",
     },
     "vue": {
-        "url": "https://vuejs-la-guia-completa-composition-pinia-mevn-creando-proyectos-reales/",
+        "title": "Vue.js La guía completa",
+        "url": "https://www.udemy.com/course/vuejs-la-guia-completa-composition-pinia-mevn-creando-proyectos-reales/",
+        "urlText": "https://vuejs-la-guia-completa/",
         "short_description": "Aprende Vue.js creando Proyectos Reales aprende MEVN Pinia Composition Vue Router SFC Vuetify Firebase Composables APIs.",
-        "stack": [
-            "Vue", "Tailwindcss", "Firebase", "MEVN", "Composition API", "Pinia", "Vue Router", "SFC", "Composables", "APIs"
-        ],
-    }
+        "learning": "En este curso aprendí a trabajar con Vue 3, a crear componentes, a trabajar con rutas, a crear formularios, a trabajar con \
+            Pinia, a crear servicios, a trabajar con Firebase, a crear composables, a trabajar con APIs, a crear Single File Components, a trabajar \
+            con Tailwindcss, a trabajar con Vuetify, a trabajar con Composition API, a mejorar mis diseños.",
+    },
+    "laravel": {
+        "title": "PHP con Laravel",
+        "url": "https://www.udemy.com/course/php-con-laravel-crea-aplicaciones-avanzadas-mientras-aprendes-laravel/",
+        "urlText": "https://php-con-laravel/",
+        "short_description": "Aprende Laravel 8 desde cero, crea aplicaciones web con el framework de PHP más popular.",
+        "learning": "En este curso aprendí a mejorar mi programación con Laravel, pese a que el curso está comenzado en laravel 8 y enfocado en la versión 9, mientras lo seguía \
+            aprendí a trabajar con Laravel 11, a crear controladores, modelos, usar inyección de dependencias, a trabajar con rutas, a trabajar con middlewares, a trabajar con \
+            Eloquent, relaciones polimórficas, scopes locales y globales, queues, eventos entre otras cosas."
+    },
+    "laravel_websockets": {
+        "title": "Realtime y Laravel",
+        "url": "https://www.udemy.com/course/realtime-y-laravel-crea-multiples-aplicaciones-tiempo-real-con-laravel/",
+        "urlText": "https://realtime-y-laravel/",
+        "short_description": "Aprende a usar Laravel Websockets para crear aplicaciones en tiempo real.",
+        "learning": "En este curso aprendí a trabajar con Laravel Websockets, a crear canales, a trabajar con eventos, así tambien como a publicar mi propio servidor de websockets en \
+            un servidor basado en Ubuntu con Nginx y Supervisor."
+    },
+    "python": {
+        "title": "Universidad Python",
+        "url": "https://www.udemy.com/course/universidad-python-desde-cero-hasta-experto-django-flask-rest-web/",
+        "urlText": "https://universidad-python/",
+        "short_description": "Aprende Python desde cero, crea aplicaciones de consola y web con el lenguaje de programación más popular.",
+        "learning": "En este curso mejoré mi concimiento en Python, aprendí a trabajar con Flask, a trabajar con Django, a trabajar con REST, a trabajar con APIs, a trabajar con \
+            interfaces gráficas, decoradores, y tener las mejores prácticas."
+    },
+    "chatgpt": {
+        "title": "Ingeniería de promots de ChatGPT para desarrolladores",
+        "url": "https://learn.deeplearning.ai/courses/chatgpt-prompt-eng/",
+        "urlText": "https://chatgpt-prompt/",
+        "short_description": "Aprende a mejorar tus prompts y a construir un chatbot usando la API de OpenAI.",
+        "learning": "En este curso aprendí a trabajar con OpenAI, a trabajar con GPT-3, a trabajar con Python, y me enseño a mejorar mis consultas y enteder mejor la inteligencia artificial. \
+            Tuve la oportunidad de desarrollar un pequeño chat con la API de OpenAI para interactuar con el usuario."
+    },
 }

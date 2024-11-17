@@ -27,6 +27,6 @@
                 </button>
             </div>
         </div>
-        <div class="text-center text-xs mt-3">2024 {{ $t("copyrigth") }}</div>
+        <div class="text-center text-xs mt-3">© {{ new Date().getFullYear() }} {{ $t("copyrigth") }}</div>
     </footer>
 </template>

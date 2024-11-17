@@ -69,6 +69,9 @@
     "location": "Location",
     "courses": "Courses",
     "my_projects": "My projects",
+    "my_own_projects": "My own projects",
+    "my_taken_courses": "My taken courses",
+    "learning": "Learning",
     "site_url":"Site url",
     "course_url":"Course url",
     "frontend_code": "Frontend code",
@@ -99,17 +102,53 @@
         ],
     },
     "codeigniter": {
-        "url": "https://codeigniter-from-scratch/",
-        "short_description": "Learn how to quickly build fully-featured web applications with the most popular lightweight PHP MVC framework.",
-        "stack": [
-            "Codeigniter"
-        ],
+        "title": "Codeigniter for beginers.",
+        "url": "https://www.udemy.com/course/codeigniter-from-scratch/",
+        "urlText": "https://codeigniter-from-scratch/",
+        "short_description": "Learn how to build quickly full featured apps with one of the most popular PHP MVC Framwork, .",
+        "learning": "This course tougth me the main diferences between Codeigniter 3 and Codeigniter 4. I learned how to work with databases, \
+            to create controllers, models and views, to work with routes, create forms and work with sessions.",
     },
     "vue": {
-        "url": "https://vuejs-la-guia-completa-composition-pinia-mevn-creando-proyectos-reales/",
-        "short_description": "Learn Vue.js creating real world projects, learn MEVN Pinia Composition Vue Router SFC Vuetify Firebase Composables APIs.",
-        "stack": [
-            "Vue", "Tailwindcss", "Firebase", "MEVN", "Composition API", "Pinia", "Vue Router", "SFC", "Composables", "APIs"
-        ],
-    }
+        "title": "Vue.js The complete guide",
+        "url": "https://www.udemy.com/course/vuejs-la-guia-completa-composition-pinia-mevn-creando-proyectos-reales/",
+        "urlText": "https://vuejs-la-guia-completa/",
+        "short_description": "Learn Vue.js by creating real projects with Pinia, Composition API, Vue Router SFC, Vuetify, Firebase, Composables, APIs.",
+        "learning": "In this course I learned to work with Vue 3, to create components, to work with routes, to create forms, to work with \
+            Pinia, to create services, to work with Firebase, to create composables, to work with APIs, to create Single File Components, to work \
+            with Tailwindcss, to work with Vuetify, to work with Composition API, to improve my designs.",
+    },
+    "laravel": {
+        "title": "PHP con Laravel",
+        "url": "https://www.udemy.com/course/php-con-laravel-crea-aplicaciones-avanzadas-mientras-aprendes-laravel/",
+        "urlText": "https://php-con-laravel/",
+        "short_description": "Learn Laravel 8 from scratch, build web applications with the most popular PHP Framework.",
+        "learning": "In this course I learned to improve my programming with Laravel, although the course is started in laravel 8 and focused on version 9, while I was following it \
+            I learned to work with Laravel 11, to create controllers, models, use dependency injection, to work with routes, to work with middlewares, to work with \
+            Eloquent, polymorphic relationships, local and global scopes, queues, events among other things."
+    },
+    "laravel_websockets": {
+        "title": "Realtime y Laravel",
+        "url": "https://www.udemy.com/course/realtime-y-laravel-crea-multiples-aplicaciones-tiempo-real-con-laravel/",
+        "urlText": "https://realtime-y-laravel/",
+        "short_description": "Learn how to use Laravel Websockets to create real time apps.",
+        "learning": "In this course I learned to work with Laravel Websockets, to create channels, to work with events, as well as to publish my own websockets server in \
+            a server based on Ubuntu with Nginx and Supervisor."
+    },
+    "python": {
+        "title": "Universidad Python",
+        "url": "https://www.udemy.com/course/universidad-python-desde-cero-hasta-experto-django-flask-rest-web/",
+        "urlText": "https://universidad-python/",
+        "short_description": "Learn Python from scratch, build console and web apps from the most popular programming language.",
+        "learning": "In this course I improved my knowledge in Python, I learned to work with Flask, to work with Django, to work with REST, to work with APIs, to work with \
+            interfaces, decorators, and have the best practices."
+    },
+    "chatgpt": {
+        "title": "Ingeniería de promots de ChatGPT para desarrolladores",
+        "url": "https://learn.deeplearning.ai/courses/chatgpt-prompt-eng/",
+        "urlText": "https://chatgpt-prompt/",
+        "short_description": "Learn how to improve yout prompts and to build a chatbot using OpenAI API.",
+        "learning": "In this course I learned to work with OpenAI, to work with GPT-3, to work with Python, and it taught me to improve my queries and better understand artificial intelligence. \
+            I had the opportunity to develop a small chat with the OpenAI API to interact with the user."
+    },
 }
