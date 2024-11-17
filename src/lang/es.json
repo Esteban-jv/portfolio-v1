@@ -84,23 +84,33 @@
     "home": "Inicio",
     "es": "Español",
     "en": "Inglés",
+    "private": "Privado",
+    "code": "Código",
     "contractflow": {
-        "url": "https://qacontractflow.com",
-        "frontend_code_url": "https://contract-flow-front",
-        "backend_code_url": "Privado",
+        "title": "ContractFlow",
+        "url": "https://qatravicons.vercel.app/",
+        "urlText": "https://qacontractflow.com",
+        "frontend_code_url": "https://github.com/Esteban-jv/contract-flow-front",
+        "frontend_code_url_text": "https://contract-flow-front",
         "short_description": "Sistema de administración de contratos para clientes, proveedores y usuarios con arquitectura multitenancy.",
-        "stack": [
-            "Python", "DJango", "Django Rest Framework", "PostgreSQL", "AWS", "HTML", "CSS", "Javascript", "VueJS", "Tailwindcss", "Multitenancy"
-        ],
     },
     "app_salon": {
-        "url": "https://app-salon-mevn-front-vue/auth/login",
-        "frontend_code_url": "https://AppSalon_MEVN_Front_Vue",
-        "backend_code_url": "https://AppSalon_MEVN_Back_Node",
+        "title": "App Salón",
+        "url": "https://app-salon-mevn-front-vue.vercel.app/auth/login",
+        "urlText": "https://app-salon/auth/login",
+        "frontend_code_url": "https://github.com/Esteban-jv/AppSalon_MEVN_Front_Vue",
+        "frontend_code_url_text": "https://AppSalon_MEVN_Front_Vue",
+        "backend_code_url": "https://github.com/Esteban-jv/AppSalon_MEVN_Back_Node",
+        "backend_code_url_text": "https://AppSalon_MEVN_Back_Node",
         "short_description": "Sistema de ventas para barbería para administración de citas y usuarios desarrollada con el stack de MEVN.",
-        "stack": [
-            "Mongo", "Express", "VueJs", "Node", "CSS", "Javascript", "Tailwindcss"
-        ],
+    },
+    "lobo": {
+        "title": "Lobo electoral",
+        "url": "http://lobo11235.atwebpages.com/",
+        "urlText": "http://lobo11235.atwebpages.com/",
+        "code_url": "https://github.com/Estebanjvj/lobo-v1",
+        "code_url_text": "https://github.com/Estebanjvj/lobo-v1",
+        "short_description": "Sistema de administración de candidatos a votantes para un partido político. Este fue mi primer desarrollo completamente desde 0 hasta despliegue a producción",
     },
     "codeigniter": {
         "title": "Codeigniter para principantes.",

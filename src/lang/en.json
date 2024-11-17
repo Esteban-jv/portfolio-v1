@@ -83,23 +83,33 @@
     "home": "Home",
     "es": "Spanish",
     "en": "English",
+    "private": "Private",
+    "code": "Code",
     "contractflow": {
-        "url": "https://qacontractflow.com",
-        "frontend_code_url": "https://contract-flow-front",
-        "backend_code_url": "private",
-        "short_description": "Contract management system for the administration of contracts, clients, suppliers and users with Multitenancy architecture.",
-        "stack": [
-            "Python", "DJango", "Django Rest Framework", "PostgreSQL", "AWS", "HTML", "CSS", "Javascript", "VueJS", "Tailwindcss", "Multitenancy"
-        ],
+        "title": "ContractFlow",
+        "url": "https://qatravicons.vercel.app/",
+        "urlText": "https://qacontractflow.com",
+        "frontend_code_url": "https://github.com/Esteban-jv/contract-flow-front",
+        "frontend_code_url_text": "https://contract-flow-front",
+        "short_description": "Contract management system for clients, suppliers and users with multitenancy architecture."
     },
     "app_salon": {
-        "url": "https://app-salon-mevn-front-vue/auth/login",
-        "frontend_code_url": "https://AppSalon_MEVN_Front_Vue",
-        "backend_code_url": "https://AppSalon_MEVN_Back_Node",
-        "short_description": "POS system for barbershop management, appointments and users management made with MEVN Stack.",
-        "stack": [
-            "Mongo", "Express", "VueJs", "Node", "CSS", "Javascript", "Tailwindcss"
-        ],
+        "title": "App Salón",
+        "url": "https://app-salon-mevn-front-vue.vercel.app/auth/login",
+        "urlText": "https://app-salon/auth/login",
+        "frontend_code_url": "https://github.com/Esteban-jv/AppSalon_MEVN_Front_Vue",
+        "frontend_code_url_text": "https://AppSalon_MEVN_Front_Vue",
+        "backend_code_url": "https://github.com/Esteban-jv/AppSalon_MEVN_Back_Node",
+        "backend_code_url_text": "https://AppSalon_MEVN_Back_Node",
+        "short_description": "Barbershop sales system for appointment and user management developed with the MEVN stack."
+    },
+    "lobo": {
+        "title": "Lobo electoral",
+        "url": "http://lobo11235.atwebpages.com/",
+        "urlText": "http://lobo11235.atwebpages.com/",
+        "code_url": "https://github.com/Estebanjvj/lobo-v1",
+        "code_url_text": "https://github.com/Estebanjvj/lobo-v1",
+        "short_description": "Candidate management system for a political party voters. This was my first development completely from 0 to deployment to production."
     },
     "codeigniter": {
         "title": "Codeigniter for beginers.",

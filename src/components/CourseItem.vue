@@ -46,6 +46,7 @@
                 <img :src="props.image" alt="Course certificated" class="w-full h-auto p-2" />
             </div>
             <div class="w-full md:w-1/2 md:px-3 my-0 flex-row self-center">
+                <h4 class="text-xl dark:text-slate-300 text-slate-800 kanit-regular my-1 flex justify-end">{{ props.year }}</h4>
                 <h4 class="text-xl dark:text-slate-300 text-slate-800 kanit-regular my-1 flex justify-center">{{ $t('short_description') }}</h4>
                 <p class="text-base dark:text-slate-300 text-slate-800 text-justify">{{ props.description }}</p>
                 <h4 class="text-xl dark:text-slate-300 text-slate-800 kanit-regular my-1 flex justify-center">{{ $t('stack') }}</h4>

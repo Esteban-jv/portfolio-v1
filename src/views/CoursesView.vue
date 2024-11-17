@@ -113,7 +113,7 @@
     </div>
     <section class="px-5 md:px-10">
         <div class="flex justify-start pb-1">
-            <h2 class="text-3xl dark:text-slate-300 text-slate-800 kanit-regular">{{ $t('courses') }}</h2>
+            <h2 class="text-3xl dark:text-slate-300 text-slate-800 kanit-regular">{{ $t('my_taken_courses') }}</h2>
         </div>
         <div class="p-3" v-for="course in courses" :key="course.id">
             <CourseItem
