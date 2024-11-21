@@ -1,8 +1,8 @@
 <script setup>
     import { onMounted, ref } from 'vue'
     import { timeline, stagger, animate } from "motion"
-    import { usePreferences } from '../stores/usePreferences';
     import { RouterLink } from 'vue-router';
+    import { usePreferences } from '../stores/usePreferences';
 
     const preferences = usePreferences()
 
@@ -23,6 +23,7 @@
         visibility: "hidden",
     });
 
+    const isLoading = ref(false)
     const isNavOpen = ref(false)
     const navLinks = ref(null)
 
@@ -34,6 +35,7 @@
     })
 
     const toggleNav = (status = null) => {
+        isLoading.value = true
         if(status !== null) {
             isNavOpen.value = status
         } else {
@@ -51,6 +53,7 @@
                 { delay: stagger(0.5) }
             )
             navLinks.value.hidden = false
+            isLoading.value = false
         } else {
             animate(navLinks.value, 
                 { opacity: [1,0], y: [0, -40] },
@@ -64,11 +67,22 @@
             setTimeout(() => {
                 navLinks.value.hidden = true
             }, 200)
+            setTimeout(() => {
+                isLoading.value = false
+            }, 500)
         }
     }
 
     const toggleMode = () => {
-        preferences.toggleMode()
+        if(!isLoading.value) {
+            isLoading.value = true
+            preferences.toggleMode()
+        }
+        toggleNav(false)
+    }
+
+    const handleChangeLan = () => {
+        preferences.setLocaleInStorage()
         toggleNav(false)
     }
 </script>
@@ -113,7 +127,7 @@
             <RouterLink :to="{name: 'courses'}" class="p-0 w-full h-full">{{ $t('courses') }}</RouterLink>
         </h1>
         <h1 class="dark:text-white text-center text-black kanit-regular py-3 px-6 hover:bg-green-500 transition-colors duration-200" @click="toggleMode()">{{ $t(preferences.noTheme) }}</h1>
-        <select class="dark:text-white text-center text-black dark:bg-black w-full rounded-b-md bg-white kanit-regular py-3 px-6 rounded-none dark:hover:bg-green-500 hover:bg-green-500 transition-colors duration-200" v-model="$i18n.locale" id="locale" @change="preferences.setLocaleInStorage()">
+        <select class="dark:text-white text-center text-black dark:bg-black w-full rounded-b-md bg-white kanit-regular py-3 px-6 rounded-none dark:hover:bg-green-500 hover:bg-green-500 transition-colors duration-200" v-model="$i18n.locale" id="locale" @change="handleChangeLan()">
             <option v-for="locale in $i18n.availableLocales" :value="locale">{{ $t(locale) }}</option>
         </select>
     </div>
