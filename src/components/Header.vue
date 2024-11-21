@@ -116,7 +116,7 @@
             </svg>
         </div>
     </div>
-    <div ref="navLinks" class="opacity-0 dark:bg-black bg-white absolute min-h-5 w-[60%] sm:w-[40%] flex-row right-[0.3rem] top-[4.3rem] rounded-lg p-0 md:hidden" v-show="true">
+    <div ref="navLinks" v-show="isNavOpen" class="opacity-0 dark:bg-black bg-white absolute min-h-5 w-[60%] sm:w-[40%] flex-row right-[0.3rem] top-[4.3rem] rounded-lg p-0 md:hidden">
         <h1 class="dark:text-white text-center text-black kanit-regular rounded-t-md py-3 px-6 hover:bg-green-500 transition-colors duration-200">
             <RouterLink :to="{name: 'home', params: { load: 'home' } }" class="p-0 w-full h-full">{{ $t('home') }}</RouterLink>
         </h1>
