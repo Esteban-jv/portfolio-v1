@@ -1,6 +1,6 @@
 <script setup>
     import { onMounted, ref } from 'vue'
-    import { timeline, stagger } from "motion"
+    import { timeline, stagger, animate } from "motion"
     import { usePreferences } from '../stores/usePreferences';
     import { RouterLink } from 'vue-router';
 
@@ -24,6 +24,7 @@
     });
 
     const isNavOpen = ref(false)
+    const navLinks = ref(null)
 
     onMounted( () => {
         timeline([
@@ -45,14 +46,25 @@
                     [".closeLine", draw(1), { duration: 0.2, at: 0.4, delay: stagger(0.4) }],
                 ], { direction: "alternate", duration: 0.4 }
             )
+            animate(navLinks.value, 
+                { opacity: [0,1], y: [-40, 0] },
+                { delay: stagger(0.5) }
+            )
+            navLinks.value.hidden = false
         } else {
+            animate(navLinks.value, 
+                { opacity: [1,0], y: [0, -40] },
+                { delay: stagger(0.5) }
+            )
             timeline([
                     [".closeLine", undraw(1), { duration: 0.2, at: 0.0, delay: stagger(0.1) }],
                     [".openLine", draw(1), { duration: 0.2, at: 0.4, delay: stagger(0.4) }],
                 ], { direction: "alternate", duration: 0.4 }
             )
+            setTimeout(() => {
+                navLinks.value.hidden = true
+            }, 200)
         }
-
     }
 
     const toggleMode = () => {
@@ -90,7 +102,7 @@
             </svg>
         </div>
     </div>
-    <div class="dark:bg-black bg-white absolute min-h-5 w-[60%] sm:w-[40%] flex-row right-[0.3rem] top-[4.3rem] rounded-lg p-0 transition-all duration-200 md:hidden" v-show="isNavOpen">
+    <div ref="navLinks" class="opacity-0 dark:bg-black bg-white absolute min-h-5 w-[60%] sm:w-[40%] flex-row right-[0.3rem] top-[4.3rem] rounded-lg p-0 md:hidden" v-show="true">
         <h1 class="dark:text-white text-center text-black kanit-regular rounded-t-md py-3 px-6 hover:bg-green-500 transition-colors duration-200">
             <RouterLink :to="{name: 'home', params: { load: 'home' } }" class="p-0 w-full h-full">{{ $t('home') }}</RouterLink>
         </h1>
