@@ -9,6 +9,9 @@
   --app-bg-secondary: #141C35;
   --app-color-secondary: #636B83;
   --app-color-mark: #77ACAF;
+  --app-green-500: #22c55e;
+  --app-sky-50: #e0f2fe;
+  --app-slate-900: #0f172a;
 }
 .kanit-thin {
   font-family: "Kanit", sans-serif;
@@ -149,4 +152,20 @@
 }
 .z-60 {
   z-index: 60;
+}
+
+/* Scrollbar stuff */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  /* background-color: var(--app-green-500); */
+  background: var(--app-green-500);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-track {
+  background: linear-gradient(180deg, var(--app-green-500) 0%, var(--app-sky-50) 100%);
+}
+::-webkit-scrollbar-track-piece:start {
+  background: var(--app-slate-900);
 }
