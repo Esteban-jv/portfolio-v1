@@ -19,7 +19,7 @@
                 stack: ["Python", "DJango", "Django Rest Framework", "PostgreSQL", "AWS", "HTML", "CSS", "Javascript", "VueJS", "Tailwindcss", "Multitenancy"],
                 status: true, //means online
                 url: $t('contractflow.url'),
-                urlText: $t('codeigniter.urlText'),
+                urlText: $t('contractflow.urlText'),
                 image: '/projects/Contractflow-desk.png',
                 frontendCodeUrl: $t('contractflow.frontend_code_url'),
                 frontendCodeUrlText: $t('contractflow.frontend_code_url_text'),
