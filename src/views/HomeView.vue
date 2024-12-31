@@ -244,7 +244,7 @@
                         @click="scrollTo(vtimes)"
                         class="md:m-2 text-xl p-2 cursor-pointer w-full text-center md:rounded-b-md"
                         :class="[ vtimesProgress > 0 && (vtimesProgress < 1 || umProgress === 0) ? 'dark:text-green-400 text-green-600 dark:bg-slate-900 bg-white' : 'text-green-400 dark:bg-slate-800 bg-slate-100' ]"
-                    >{{ $t('current') }}</div>
+                    >{{ 2022 }}</div>
                     <div 
                         @click="scrollTo(um)"
                         class="md:m-2 text-xl p-2 cursor-pointer w-full text-center md:rounded-md"
@@ -265,7 +265,7 @@
             <div class="md:w-[80%] w-full px-5 md:px-10">
                 <article ref="experience" class="">
                     <div ref="vtimes" class="experience transition-opacity duration-500 pt-[60px] md:pt-0" :class="[(vtimesProgress > 0 && umProgress < 0.4) ? 'opacity-100' : 'opacity-50']">
-                        <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">01/2022 - {{ $t('current') }}. Vacation Times</div>
+                        <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">01/2022 - 01/2025. Vacation Times</div>
                         <div class="p-2 rounded-lg">
                             <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
                                 <span class="badge bg-green-800 text-green-200 shadow-md inline-flex" v-for="st in $tm('vtimes.stack')" :key="st">{{ getValueKeyFromString(st, TA) }}</span>
@@ -339,7 +339,7 @@
                     </div>
 
                     <div ref="ich" class="experience transition-opacity duration-500 pt-[60px] md:pt-0" :class="[ichProgress > 0.5 ? 'opacity-100' : 'opacity-50']">
-                        <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">02/2019 - 09/2022. Red Laboral ICH</div>
+                        <div class="text-xl dark:text-slate-300 text-slate-800 border-l-green-300 border-l-[2px] p-3 kanit-regular">02/2019 - 09/2019. Red Laboral ICH</div>
                         <div class="p-2 rounded-lg">
                             <div class="dark:text-slate-300 text-slate-800 mx-0 my-1 md:my-0 flex flex-flow gap-1 flex-wrap text-xs">
                                 <span class="badge bg-green-800 text-green-200 shadow-md inline-flex" v-for="st in $tm('ich.stack')" :key="st">{{ getValueKeyFromString(st, TA) }}</span>
